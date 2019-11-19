@@ -349,7 +349,7 @@ def GetHeadXProfile(y,z,time,inputfile):
     yindex = (abs(yy-y)).argmin()
     zindex = (abs(zz-z)).argmin()
     tk = timekeys[abs(time-array(times)).argmin()]
-    sx = f1[tk]['Liquid_Pressure [Pa]'][:,yindex,zindex]/1000./9.8+zz[z_index]
+    sx = f1[tk]['Liquid_Pressure [Pa]'][:,yindex,zindex]/1000./9.8+zz[zindex]
     f1.close()
     return sx,xx
     
