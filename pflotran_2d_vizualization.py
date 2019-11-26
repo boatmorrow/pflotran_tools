@@ -113,6 +113,7 @@ def PlotVelocity2d(time,inputfile):
 def PlotTracerDistribution(tracer,time,inputfile):
     '''Plots the tracer distribution for a given time. Depth value is hard coded to the bottom layer right now. Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
+    tracerkey = 'Total_'+tracer+' [M]'
     #this is in model time 
     f1 = h5py.File(inputfile,'r');
     #pdb.set_trace();
@@ -120,7 +121,7 @@ def PlotTracerDistribution(tracer,time,inputfile):
     tk = timekeys[(abs(time-times)).argmin()];
     #figure();
     V = linspace(0.0,5.5e-3,50);
-    contourf(xx,yy,transpose(f1[tk][tracer][:,:,0]),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+    contourf(xx,yy,transpose(f1[tk][tracerkey][:,:,0]),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
     #imshow(transpose(f1[tk][tracer][:,:,0]),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
 #    bar = colorbar(orientation='horizontal');
     tticks = arange(0.,5.5e-3,6.e-4);
