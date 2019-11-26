@@ -12,6 +12,7 @@ from numpy import *
 import cfc_tools as cfc
 import sf6_tools as sf6
 import noble_gas_tools as ng
+from matplotlib import ticker, cm, colors
 
 
 # get the coordinate array turn them to cell center coordinates - I think this will only work for block grids...
@@ -84,6 +85,7 @@ def PlotHeadDistribution2d(time,inputfile):
     bar.set_label('Head (m)');
     xlabel('X distance (m)');
     ylabel('Y distance (m)');
+    title('Time = '+tk)
     #show();
     f1.close();
      
@@ -110,7 +112,7 @@ def PlotVelocity2d(time,inputfile):
     f1.close();
 
 #plot distriubtion of a tracer for a given time
-def PlotTracerDistribution2d(tracer,time,z,inputfile):
+def PlotTracerDistribution2d(tracer,time,z,inputfile,logflag=False):
     '''Plots the tracer distribution for a given time. Depth value is hard coded to the bottom layer right now. Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     tracerkey = 'Total_'+tracer+' [M]'
@@ -119,13 +121,22 @@ def PlotTracerDistribution2d(tracer,time,z,inputfile):
     times,timekeys = GetTimeInfo(inputfile);
     zi = abs(z-zz).argmin()
     tk = timekeys[(abs(time-times)).argmin()];
-    Vmax = max(f1[tk][tracerkey][:,:,zi])
-    V = linspace(0.0,Vmax,50); #linspace for now.  could add logspace option...
-    contourf(xx,yy,transpose(f1[tk][tracerkey][:,:,zi]),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+    Vmin = f1[tk][tracerkey][:,:,zi].min()
+    Vmax = f1[tk][tracerkey][:,:,zi].max()
+    V = linspace(Vmin,Vmax/10.,50); #linspace for now.  could add logspace option...
+    if logflag:
+        V_exp = arange(floor(log10(Vmin)-1),ceil(log10(Vmax)+1))
+        V = power(10,V_exp)
+        cs = contourf(xx,yy,transpose(f1[tk][tracerkey][:,:,zi]),V,norm=colors.LogNorm()); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+    else:
+        cs = contourf(xx,yy,transpose(f1[tk][tracerkey][:,:,zi]),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
     #imshow(transpose(f1[tk][tracer][:,:,0]),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
 #    bar = colorbar(orientation='horizontal');
-    tticks = arange(0.,Vmax,Vmax/100.);
-    bar = colorbar(ticks=tticks,format='%4.1e');
+    tticks = linspace(V.min(),V.max(),10);
+    if logflag:
+        bar = colorbar(cs)
+    else:
+        bar = colorbar(ticks=tticks,format='%4.1e');
     bar.set_label(tracer);
     xlabel('X distance (m)');
     ylabel('Y distance (m)');
