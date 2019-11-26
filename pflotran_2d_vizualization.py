@@ -74,7 +74,7 @@ def PlotHeadDistribution2d(time,inputfile):
     '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  Depth value is hard coded to the bottom layer right now. Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     #this is in model time 
-    #f1 = h5py.File(inputfile,'r');
+    f1 = h5py.File(inputfile,'r');
     #pdb.set_trace();
     times,timekeys = GetTimeInfo(inputfile);
     tk = timekeys[(abs(time-times)).argmin()];
@@ -85,7 +85,7 @@ def PlotHeadDistribution2d(time,inputfile):
     xlabel('X distance (m)');
     ylabel('Y distance (m)');
     #show();
-    #f1.close();
+    f1.close();
      
 def PlotVelocity2d(time,inputfile):
     '''Plots the velocity vectors for each cell in the bottom most row. Depth value is hard coded to the bottom layer right now. Will use the time key closest to the desired time.'''
@@ -110,26 +110,26 @@ def PlotVelocity2d(time,inputfile):
     f1.close();
 
 #plot distriubtion of a tracer for a given time
-def PlotTracerDistribution(tracer,time,inputfile):
+def PlotTracerDistribution2d(tracer,time,z,inputfile):
     '''Plots the tracer distribution for a given time. Depth value is hard coded to the bottom layer right now. Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     tracerkey = 'Total_'+tracer+' [M]'
     #this is in model time 
     f1 = h5py.File(inputfile,'r');
-    #pdb.set_trace();
     times,timekeys = GetTimeInfo(inputfile);
+    zi = abs(z-zz).argmin()
     tk = timekeys[(abs(time-times)).argmin()];
-    #figure();
-    V = linspace(0.0,5.5e-3,50);
-    contourf(xx,yy,transpose(f1[tk][tracerkey][:,:,0]),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+    Vmax = max(f1[tk][tracerkey][:,:,zi])
+    V = linspace(0.0,Vmax,50); #linspace for now.  could add logspace option...
+    contourf(xx,yy,transpose(f1[tk][tracerkey][:,:,zi]),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
     #imshow(transpose(f1[tk][tracer][:,:,0]),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
 #    bar = colorbar(orientation='horizontal');
-    tticks = arange(0.,5.5e-3,6.e-4);
+    tticks = arange(0.,Vmax,Vmax/100.);
     bar = colorbar(ticks=tticks,format='%4.1e');
     bar.set_label(tracer);
     xlabel('X distance (m)');
     ylabel('Y distance (m)');
-    title('Time = 1 yr');
+    title('Time = '+str(time));
     #show();
     f1.close();
 
