@@ -74,7 +74,7 @@ def PlotHeadDistribution2d(time,inputfile):
     '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  Depth value is hard coded to the bottom layer right now. Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     #this is in model time 
-    f1 = h5py.File(inputfile,'r');
+    #f1 = h5py.File(inputfile,'r');
     #pdb.set_trace();
     times,timekeys = GetTimeInfo(inputfile);
     tk = timekeys[(abs(time-times)).argmin()];
@@ -85,7 +85,7 @@ def PlotHeadDistribution2d(time,inputfile):
     xlabel('X distance (m)');
     ylabel('Y distance (m)');
     #show();
-    f1.close();
+    #f1.close();
      
 def PlotVelocity2d(time,inputfile):
     '''Plots the velocity vectors for each cell in the bottom most row. Depth value is hard coded to the bottom layer right now. Will use the time key closest to the desired time.'''
