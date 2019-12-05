@@ -91,11 +91,11 @@ def PlotHeadDistribution2dXY(time,z,inputfile):
      
 def PlotHeadDistribution2dXZ(time,y,inputfile):
     '''plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  will use the time key closest to the desired time.'''
-    xx,yy,zz = getcellcenters(inputfile);
+    xx,yy,zz = GetCellCenters(inputfile);
     #this is in model time 
     f1 = h5py.file(inputfile,'r');
     #pdb.set_trace();
-    times,timekeys = gettimeinfo(inputfile);
+    times,timekeys = GetTimeinfo(inputfile);
     tk = timekeys[(abs(time-times)).argmin()];
     #figure();
     imshow(transpose(f1[tk]['liquid_pressure [pa]'][:,y,:]/1000./9.8),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
