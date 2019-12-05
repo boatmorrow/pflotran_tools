@@ -89,7 +89,7 @@ def PlotHeadDistribution2dXY(time,z,inputfile):
     #show();
     f1.close();
      
-def plotheaddistribution2dXZ(time,y,inputfile):
+def PlotHeadDistribution2dXZ(time,y,inputfile):
     '''plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  will use the time key closest to the desired time.'''
     xx,yy,zz = getcellcenters(inputfile);
     #this is in model time 
