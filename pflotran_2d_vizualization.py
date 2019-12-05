@@ -166,7 +166,33 @@ def PlotTracerDistribution2dXZ(tracer,time,y,inputfile,logflag=False):
         bar = colorbar(ticks=tticks,format='%4.1e');
     bar.set_label(tracer);
     xlabel('X distance (m)');
-    ylabel('Y distance (m)');
+    ylabel('Z distance (m)');
+    title('Time = '+str(time));
+    #show();
+
+#plot distriubtion of a tracer for a given time in the yz plane
+def PlotTracerDistribution2dXZ(tracer,time,x,inputfile,logflag=False):
+    '''Plots the tracer distribution for a given time in the yz plane at location x. Will use the time key closest to the desired time.'''
+    syz,yy,zz = GetTracerYZSlice(tracer,x,time,inputfile)
+    Vmin = syz.min()
+    Vmax = syz.max()
+    V = linspace(Vmin,Vmax/10.,50); #linspace for now.  could add logspace option...
+    if logflag:
+        V_exp = arange(floor(log10(Vmin)-1),ceil(log10(Vmax)+1))
+        V = power(10,V_exp)
+        cs = contourf(xx,yy,transpose(syz),V,norm=colors.LogNorm()); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+    else:
+        cs = contourf(xx,yy,transpose(syz),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+    #imshow(transpose(f1[tk][tracer][:,:,0]),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+#    bar = colorbar(orientation='horizontal');
+    tticks = linspace(V.min(),V.max(),10);
+    if logflag:
+        bar = colorbar(cs)
+    else:
+        bar = colorbar(ticks=tticks,format='%4.1e');
+    bar.set_label(tracer);
+    xlabel('Y distance (m)');
+    ylabel('Z distance (m)');
     title('Time = '+str(time));
     #show();
 
