@@ -71,8 +71,8 @@ def GetMaxTime(inputfile):
     kl = max([float(k.split()[1]) for k in d.keys() if k.split()[0]==u'Time:'])
     return kl
 
-def PlotHeadDistribution2d(time,inputfile):
-    '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  Depth value is hard coded to the bottom layer right now. Will use the time key closest to the desired time.'''
+def PlotHeadDistribution2dXY(time,z,inputfile):
+    '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     #this is in model time 
     f1 = h5py.File(inputfile,'r');
@@ -80,11 +80,47 @@ def PlotHeadDistribution2d(time,inputfile):
     times,timekeys = GetTimeInfo(inputfile);
     tk = timekeys[(abs(time-times)).argmin()];
     #figure();
-    imshow(transpose(f1[tk]['Liquid_Pressure [Pa]'][:,:,0]/1000./9.8),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+    imshow(transpose(f1[tk]['Liquid_Pressure [Pa]'][:,:,z]/1000./9.8),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
     bar = colorbar(orientation='horizontal');
     bar.set_label('Head (m)');
     xlabel('X distance (m)');
     ylabel('Y distance (m)');
+    title('Time = '+tk)
+    #show();
+    f1.close();
+     
+def plotheaddistribution2dXZ(time,y,inputfile):
+    '''plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  will use the time key closest to the desired time.'''
+    xx,yy,zz = getcellcenters(inputfile);
+    #this is in model time 
+    f1 = h5py.file(inputfile,'r');
+    #pdb.set_trace();
+    times,timekeys = gettimeinfo(inputfile);
+    tk = timekeys[(abs(time-times)).argmin()];
+    #figure();
+    imshow(transpose(f1[tk]['liquid_pressure [pa]'][:,y,:]/1000./9.8),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+    bar = colorbar(orientation='horizontal');
+    bar.set_label('head (m)');
+    xlabel('x distance (m)');
+    ylabel('z distance (m)');
+    title('time = '+tk)
+    #show();
+    f1.close();
+     
+def PlotHeadDistribution2dYZ(time,x,inputfile):
+    '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  Will use the time key closest to the desired time.'''
+    xx,yy,zz = GetCellCenters(inputfile);
+    #this is in model time 
+    f1 = h5py.File(inputfile,'r');
+    #pdb.set_trace();
+    times,timekeys = GetTimeInfo(inputfile);
+    tk = timekeys[(abs(time-times)).argmin()];
+    #figure();
+    imshow(transpose(f1[tk]['Liquid_Pressure [Pa]'][x,:,:]/1000./9.8),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+    bar = colorbar(orientation='horizontal');
+    bar.set_label('Head (m)');
+    xlabel('Y distance (m)');
+    ylabel('Z distance (m)');
     title('Time = '+tk)
     #show();
     f1.close();
@@ -112,7 +148,7 @@ def PlotVelocity2d(time,inputfile):
     f1.close();
 
 #plot distriubtion of a tracer for a given time in xy plane
-def PlotTracerDistribution2d(tracer,time,z,inputfile,logflag=False):
+def PlotTracerDistribution2dXY(tracer,time,z,inputfile,logflag=False):
     '''Plots the tracer distribution in the xy plane for a given time at location z.  Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     tracerkey = 'Total_'+tracer+' [M]'
