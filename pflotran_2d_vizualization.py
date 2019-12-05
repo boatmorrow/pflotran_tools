@@ -111,9 +111,9 @@ def PlotVelocity2d(time,inputfile):
     #show();
     f1.close();
 
-#plot distriubtion of a tracer for a given time
+#plot distriubtion of a tracer for a given time in xy plane
 def PlotTracerDistribution2d(tracer,time,z,inputfile,logflag=False):
-    '''Plots the tracer distribution for a given time. Depth value is hard coded to the bottom layer right now. Will use the time key closest to the desired time.'''
+    '''Plots the tracer distribution in the xy plane for a given time at location z.  Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     tracerkey = 'Total_'+tracer+' [M]'
     #this is in model time 
@@ -143,6 +143,32 @@ def PlotTracerDistribution2d(tracer,time,z,inputfile,logflag=False):
     title('Time = '+str(time));
     #show();
     f1.close();
+
+#plot distriubtion of a tracer for a given time in the xz plane
+def PlotTracerDistribution2dXZ(tracer,time,y,inputfile,logflag=False):
+    '''Plots the tracer distribution for a given time in the xz plane at location y. Will use the time key closest to the desired time.'''
+    sxz,xx,zz = GetTracerXZSlice(tracer,y,time,inputfile)
+    Vmin = sxz.min()
+    Vmax = sxz.max()
+    V = linspace(Vmin,Vmax/10.,50); #linspace for now.  could add logspace option...
+    if logflag:
+        V_exp = arange(floor(log10(Vmin)-1),ceil(log10(Vmax)+1))
+        V = power(10,V_exp)
+        cs = contourf(xx,yy,transpose(sxz),V,norm=colors.LogNorm()); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+    else:
+        cs = contourf(xx,yy,transpose(sxz),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+    #imshow(transpose(f1[tk][tracer][:,:,0]),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+#    bar = colorbar(orientation='horizontal');
+    tticks = linspace(V.min(),V.max(),10);
+    if logflag:
+        bar = colorbar(cs)
+    else:
+        bar = colorbar(ticks=tticks,format='%4.1e');
+    bar.set_label(tracer);
+    xlabel('X distance (m)');
+    ylabel('Y distance (m)');
+    title('Time = '+str(time));
+    #show();
 
 def PlotMeanAgeDistribution(time,inputfile):
     '''Plots the tracer distribution for a given time. Depth value is hard coded to the bottom layer right now. Will use the time key closest to the desired time.'''
