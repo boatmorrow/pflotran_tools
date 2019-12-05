@@ -93,7 +93,7 @@ def PlotHeadDistribution2dXZ(time,y,inputfile):
     '''plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     #this is in model time 
-    f1 = h5py.file(inputfile,'r');
+    f1 = h5py.File(inputfile,'r');
     #pdb.set_trace();
     times,timekeys = GetTimeinfo(inputfile);
     tk = timekeys[(abs(time-times)).argmin()];
