@@ -81,7 +81,7 @@ def PlotHeadDistribution2dXY(time,z,inputfile):
     times,timekeys = GetTimeInfo(inputfile);
     tk = timekeys[(abs(time-times)).argmin()];
     #figure();
-    hxy = f1[tk]['Liquid_Pressure [Pa]'][:,:,zindex]/1000./9.8
+    hxy = f1[tk]['Liquid_Pressure [Pa]'][:,:,zindex]/1000./9.8 + zz[zindex]
     Vmin = hxy.min()
     Vmax = hxy.max()
     V = linspace(Vmin,Vmax,50); #linspace for now.  could add logspace option...
@@ -105,7 +105,7 @@ def PlotHeadDistribution2dXZ(time,y,inputfile):
     times,timekeys = GetTimeInfo(inputfile);
     tk = timekeys[(abs(time-times)).argmin()];
     #figure();
-    hxz = f1[tk]['Liquid_Pressure [Pa]'][:,yindex,:]/1000./9.8
+    hxz = f1[tk]['Liquid_Pressure [Pa]'][:,yindex,:]/1000./9.8 + zz
     Vmin = hxz.min()
     Vmax = hxz.max()
     V = linspace(Vmin,Vmax,50); #linspace for now.  could add logspace option...
@@ -129,7 +129,7 @@ def PlotHeadDistribution2dYZ(time,x,inputfile):
     times,timekeys = GetTimeInfo(inputfile);
     tk = timekeys[(abs(time-times)).argmin()];
     #figure();
-    hyz = f1[tk]['Liquid_Pressure [Pa]'][xindex,:,:]/1000./9.8
+    hyz = f1[tk]['Liquid_Pressure [Pa]'][xindex,:,:]/1000./9.8 + zz
     Vmin = hyz.min()
     Vmax = hyz.max()
     V = linspace(Vmin,Vmax,50); #linspace for now.  could add logspace option...
