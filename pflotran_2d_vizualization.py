@@ -72,7 +72,7 @@ def GetMaxTime(inputfile):
     return kl
 
 def PlotHeadDistribution2dXY(time,z,inputfile):
-    '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  Will use the time key closest to the desired time.'''
+    '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the XY plane at location z.  Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     zindex = (abs(zz-z)).argmin();
     #this is in model time 
@@ -96,7 +96,7 @@ def PlotHeadDistribution2dXY(time,z,inputfile):
     f1.close();
      
 def PlotHeadDistribution2dXZ(time,y,inputfile):
-    '''plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  will use the time key closest to the desired time.'''
+    '''plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the XZ plane at location y.  will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     #this is in model time 
     yindex = (abs(yy-y)).argmin();
@@ -120,7 +120,7 @@ def PlotHeadDistribution2dXZ(time,y,inputfile):
     f1.close();
      
 def PlotHeadDistribution2dYZ(time,x,inputfile):
-    '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  Will use the time key closest to the desired time.'''
+    '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the yz plane at location x.  Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     #this is in model time 
     f1 = h5py.File(inputfile,'r');
