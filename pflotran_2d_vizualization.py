@@ -72,56 +72,98 @@ def GetMaxTime(inputfile):
     return kl
 
 def PlotHeadDistribution2dXY(time,z,inputfile):
-    '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  Will use the time key closest to the desired time.'''
+    '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the XY plane at location z.  Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
+    zindex = (abs(zz-z)).argmin();
     #this is in model time 
     f1 = h5py.File(inputfile,'r');
     #pdb.set_trace();
     times,timekeys = GetTimeInfo(inputfile);
     tk = timekeys[(abs(time-times)).argmin()];
     #figure();
-    imshow(transpose(f1[tk]['Liquid_Pressure [Pa]'][:,:,z]/1000./9.8),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
-    bar = colorbar(orientation='horizontal');
-    bar.set_label('Head (m)');
+    hxy = f1[tk]['Liquid_Pressure [Pa]'][:,:,zindex]/1000./9.8 + zz[zindex]
+    Vmin = hxy.min()
+    Vmax = hxy.max()
+    V = linspace(Vmin,Vmax,50); #linspace for now.  could add logspace option...
+    cs = contourf(xx,yy,transpose(hxy),V); #The flip flop is because of the x=column y=row
+    tticks = linspace(V.min(),V.max(),10);
+    bar = colorbar(ticks=tticks,format='%4.1e');
+    bar.set_label('Head');
     xlabel('X distance (m)');
     ylabel('Y distance (m)');
-    title('Time = '+tk)
+    title('Time = '+str(time));
     #show();
     f1.close();
      
 def PlotHeadDistribution2dXZ(time,y,inputfile):
-    '''plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  will use the time key closest to the desired time.'''
+    '''plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the XZ plane at location y.  will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
     #this is in model time 
-    f1 = h5py.File(inputfile,'r');
-    #pdb.set_trace();
-    times,timekeys = GetTimeinfo(inputfile);
-    tk = timekeys[(abs(time-times)).argmin()];
-    #figure();
-    imshow(transpose(f1[tk]['liquid_pressure [pa]'][:,y,:]/1000./9.8),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
-    bar = colorbar(orientation='horizontal');
-    bar.set_label('head (m)');
-    xlabel('x distance (m)');
-    ylabel('z distance (m)');
-    title('time = '+tk)
-    #show();
-    f1.close();
-     
-def PlotHeadDistribution2dYZ(time,x,inputfile):
-    '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the bottom most layer.  Will use the time key closest to the desired time.'''
-    xx,yy,zz = GetCellCenters(inputfile);
-    #this is in model time 
+    yindex = (abs(yy-y)).argmin();
     f1 = h5py.File(inputfile,'r');
     #pdb.set_trace();
     times,timekeys = GetTimeInfo(inputfile);
     tk = timekeys[(abs(time-times)).argmin()];
     #figure();
-    imshow(transpose(f1[tk]['Liquid_Pressure [Pa]'][x,:,:]/1000./9.8),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
-    bar = colorbar(orientation='horizontal');
-    bar.set_label('Head (m)');
+    hxz = f1[tk]['Liquid_Pressure [Pa]'][:,yindex,:]/1000./9.8 + zz
+    Vmin = hxz.min()
+    Vmax = hxz.max()
+    V = linspace(Vmin,Vmax,50); #linspace for now.  could add logspace option...
+    cs = contourf(xx,zz,transpose(hxz),V); #The flip flop is because of the x=column y=row
+    tticks = linspace(V.min(),V.max(),10);
+    bar = colorbar(ticks=tticks,format='%4.1e');
+    bar.set_label('Head');
+    xlabel('X distance (m)');
+    ylabel('Z distance (m)');
+    title('Time = '+str(time));
+    #show();
+    f1.close();
+     
+def PlotHeadDistribution2dYZ(time,x,inputfile):
+    '''Plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the yz plane at location x.  Will use the time key closest to the desired time.'''
+    xx,yy,zz = GetCellCenters(inputfile);
+    #this is in model time 
+    f1 = h5py.File(inputfile,'r');
+    xindex = (abs(xx-x)).argmin()
+    #pdb.set_trace();
+    times,timekeys = GetTimeInfo(inputfile);
+    tk = timekeys[(abs(time-times)).argmin()];
+    #figure();
+    hyz = f1[tk]['Liquid_Pressure [Pa]'][xindex,:,:]/1000./9.8 + zz
+    Vmin = hyz.min()
+    Vmax = hyz.max()
+    V = linspace(Vmin,Vmax,50); #linspace for now.  could add logspace option...
+    cs = contourf(yy,zz,transpose(hyz),V); #The flip flop is because of the x=column y=row
+    tticks = linspace(V.min(),V.max(),10);
+    bar = colorbar(ticks=tticks,format='%4.1e');
+    bar.set_label('Head');
     xlabel('Y distance (m)');
     ylabel('Z distance (m)');
-    title('Time = '+tk)
+    title('Time = '+str(time));
+    #show();
+    f1.close();
+     
+def PlotMaterialDistribution2dXZ(time,y,inputfile):
+    '''Plots the pressure material distribution for a 2-d xz slice at location y (i.e. x-sec).  Will use the time key closest to the desired time.'''
+    xx,yy,zz = GetCellCenters(inputfile)
+    #this is in model time 
+    f1 = h5py.File(inputfile,'r')
+    yindex = (abs(yy-y)).argmin()
+    #pdb.set_trace();
+    times,timekeys = GetTimeInfo(inputfile);
+    tk = timekeys[(abs(time-times)).argmin()];
+    #figure();
+    mxz = f1[tk]['Material_ID'][:,yindex,:]
+    Vmin = mxz.min()
+    Vmax = mxz.max()
+    V = arange(Vmin-1,Vmax+1,1.); #linspace for now.  could add logspace option...
+    cs = contourf(xx,zz,transpose(mxz),V); #The flip flop is because of the x=column y=row
+    #tticks = linspace(V.min(),V.max(),10);
+    bar = colorbar()
+    #bar.set_label('Head');
+    xlabel('Y distance (m)');
+    ylabel('Z distance (m)');
+    title('Material Distribution');
     #show();
     f1.close();
      
@@ -190,9 +232,9 @@ def PlotTracerDistribution2dXZ(tracer,time,y,inputfile,logflag=False):
     if logflag:
         V_exp = arange(floor(log10(Vmin)-1),ceil(log10(Vmax)+1))
         V = power(10,V_exp)
-        cs = contourf(xx,yy,transpose(sxz),V,norm=colors.LogNorm()); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+        cs = contourf(xx,zz,transpose(sxz),V,norm=colors.LogNorm()); #z slice hardcoded for now, the flip flop is because of the x=column y=row
     else:
-        cs = contourf(xx,yy,transpose(sxz),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+        cs = contourf(xx,zz,transpose(sxz),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
     #imshow(transpose(f1[tk][tracer][:,:,0]),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
 #    bar = colorbar(orientation='horizontal');
     tticks = linspace(V.min(),V.max(),10);
@@ -207,7 +249,7 @@ def PlotTracerDistribution2dXZ(tracer,time,y,inputfile,logflag=False):
     #show();
 
 #plot distriubtion of a tracer for a given time in the yz plane
-def PlotTracerDistribution2dXZ(tracer,time,x,inputfile,logflag=False):
+def PlotTracerDistribution2dYZ(tracer,time,x,inputfile,logflag=False):
     '''Plots the tracer distribution for a given time in the yz plane at location x. Will use the time key closest to the desired time.'''
     syz,yy,zz = GetTracerYZSlice(tracer,x,time,inputfile)
     Vmin = syz.min()
@@ -216,9 +258,9 @@ def PlotTracerDistribution2dXZ(tracer,time,x,inputfile,logflag=False):
     if logflag:
         V_exp = arange(floor(log10(Vmin)-1),ceil(log10(Vmax)+1))
         V = power(10,V_exp)
-        cs = contourf(xx,yy,transpose(syz),V,norm=colors.LogNorm()); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+        cs = contourf(yy,zz,transpose(syz),V,norm=colors.LogNorm()); #z slice hardcoded for now, the flip flop is because of the x=column y=row
     else:
-        cs = contourf(xx,yy,transpose(syz),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+        cs = contourf(yy,zz,transpose(syz),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
     #imshow(transpose(f1[tk][tracer][:,:,0]),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
 #    bar = colorbar(orientation='horizontal');
     tticks = linspace(V.min(),V.max(),10);
@@ -420,7 +462,8 @@ def GetTracerXZSlice(tracer,y,time,inputfile):
     f1 = h5py.File(inputfile,'r');
     yindex = (abs(yy-y)).argmin();
     tk = timekeys[abs(time-array(times)).argmin()];
-    sxz = f1[tk][tracer][:,yindex,:];
+    tracerkey = 'Total_'+tracer+' [M]'
+    sxz = f1[tk][tracerkey][:,yindex,:];
     f1.close();
     return sxz,xx,zz
 
@@ -463,7 +506,8 @@ def GetTracerYZSlice(tracer,x,time,inputfile):
     f1 = h5py.File(inputfile,'r');
     xindex = (abs(xx-x)).argmin();
     tk = timekeys[abs(time-array(times)).argmin()];
-    sxz = f1[tk][tracer][xindex,:,:];
+    tracerkey = 'Total_'+tracer+' [M]'
+    sxz = f1[tk][tracerkey][xindex,:,:];
     f1.close();
     return sxz,yy,zz
 
