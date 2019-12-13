@@ -9,12 +9,12 @@ Created on Fri Feb 24 15:27:45 2012
 from numpy import *
 from scipy.integrate import trapz
 import string
-from pdb import set_trace
+import pdb
 from pylab import *
 import os
 import h5py
 import pandas
-from datetime import *
+import  datetime as dt
 import matplotlib.dates as mdates
 
 def mol_kg2tu(x):
@@ -138,7 +138,7 @@ def read_pflotran_h5(h5file='pflotran.h5'):
     z_n = f1['Coordinates']['Z [m]'][:];
     #get block center coordinates
     
-def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',date_start=datetime(1930,01,01)):
+def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',date_start=dt.datetime(1930,01,01)):
     '''reads in the observation point file from plotran and returns a pandas dataframe indexed by the 
     date.  Needs to know the start date of the model timesteps.  Assumes that the model time recorded
     by pflotran is date_start + time.'''
@@ -154,8 +154,8 @@ def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',date_start=datetime(1
     for i in range(len(lh)):
         lh_i = lh[i].strip();    
         lh_i = lh_i.strip('"');
-        #lh[i]= string.join(lh_i.split(' ')[0:2]);  #just keep the first part of the original
-        lh[i]=lh_i.split(' ')[0]
+        lh[i]= string.join(lh_i.split(' ')[0:2],'_');  #just keep the first part of the original
+        #lh[i]=lh_i.split(' ')[0]
     header2 = string.join(lh,sep=' ');
     #now write the new mangle observation file (for now until I figure out to just change this to a Pandas data frame)
     ll[0] = header2+'\n';
@@ -166,13 +166,14 @@ def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',date_start=datetime(1
     f.close();
     f = file('observation-59pg.txt','r');   
     df = pandas.read_csv(f,sep=' ');
-    days = df['Time']*365.25;  #change the plotran timestep output in years to days (this may change with different models - not sure...)
+    f.close()
+    days = df['Time_[y]']*365.25;  #change the plotran timestep output in years to days (this may change with different models - not sure...)
     years = ones(len(days));
     dyear = date_start;  
     df['Date']=dyear; #stat out at the start date
     
     for i in range(len(days)):
-        d = timedelta(days=days[i]);
+        d = dt.timedelta(days=days[i]);
         df['Date'][i] = df['Date'][i]+d;    # the true time is modeled time plus the start_time
     #set_trace();
     df_mod = df.set_index('Date');  # the pandas dataframe indexed on time
@@ -294,7 +295,7 @@ def make_obs_pt_hist_plot(dd,iVar):
     fig.autofmt_xdate()
     show();
 
-def make_modern_recharge(df,model_time_0=datetime(1776,1,1)):
+def make_modern_recharge(df,model_time_0=dt.datetime(1776,1,1)):
     '''produced two files the list of constrains and the condition for modern recharge for each date (limited to daly right now), df needs to be a time indexed data frame in mol/kg e.g. produced by get_atm_conc, and the date where the model begins'''
     f = file('Modern_Constraints.txt','w')
     s = []
@@ -307,8 +308,8 @@ def make_modern_recharge(df,model_time_0=datetime(1776,1,1)):
         s.append('    Tracer'+'\t'+'%1.4E' %1.e-16+'\tF\n');  #for plotran water_age simulation
         #    s.append('    Tracer_Age'+'\t'+'%1.4E' %1.e-16+'\tF\n');  #for plotran water_age simulation
     s.append('  /\n');
-        s.append('END\n');
-        s.append('\n')
+    s.append('END\n');
+    s.append('\n')
     f.writelines(s);
     f.close();
 
@@ -317,7 +318,7 @@ def make_modern_recharge(df,model_time_0=datetime(1776,1,1)):
     s.append('TRANSPORT_CONDITION modern_recharge\n');
     s.append('  TYPE dirichlet_zero_gradient\n');
     s.append('  CONSTRAINT_LIST\n')
-    for i in range(df)):
+    for i in xrange(df):
         seconds = (df.index[i] - model_time_0).total_seconds #needs to be in seconds for pflotran
         sec_str = '%1.5E' %seconds
         const_nm = df.index[i].isotdate()
