@@ -201,7 +201,7 @@ def PlotTracerDistribution2dXY(tracer,time,z,inputfile,logflag=False):
     tk = timekeys[(abs(time-times)).argmin()];
     Vmin = f1[tk][tracerkey][:,:,zi].min()
     Vmax = f1[tk][tracerkey][:,:,zi].max()
-    V = linspace(Vmin,Vmax/10.,50); #linspace for now.  could add logspace option...
+    V = linspace(0,Vmax,50,endpoint=True); #linspace for now.  could add logspace option...
     if logflag:
         V_exp = arange(floor(log10(Vmin)-1),ceil(log10(Vmax)+1))
         V = power(10,V_exp)
@@ -214,7 +214,8 @@ def PlotTracerDistribution2dXY(tracer,time,z,inputfile,logflag=False):
     if logflag:
         bar = colorbar(cs)
     else:
-        bar = colorbar(ticks=tticks,format='%4.1e');
+#        bar = colorbar(ticks=tticks,format='%4.1e');
+        bar = colorbar(ticks=tticks,cmap='jet');
     bar.set_label(tracer);
     xlabel('X distance (m)');
     ylabel('Y distance (m)');
