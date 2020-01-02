@@ -298,6 +298,10 @@ def write_grid_card_dx(dx,dy,dz,grav=(0.,0.,0.),origin=(0.,0.,0,),invert_z=False
 
     gfile.write('GRID\n')
     gfile.write('  TYPE structured\n')
+    gfile.write('  GRAVITY '+str(grav[0])+'  '+str(grav[1])+'  '+str(grav[2])+'\n')
+    gfile.write('  ORIGIN  '+str(origin[0])+'  '+str(origin[1])+'  '+str(origin[2])+'\n')
+    if invert_z:
+        gfile.write('  INVERT_Z\n')
     gfile.write('  NXYZ '+dx_len+' '+dy_len+' '+dz_len+'\n')
     gfile.write('  DXYZ\n')
 
