@@ -207,7 +207,7 @@ def PlotTracerDistribution2dXY(tracer,time,z,inputfile,logflag=False):
         V = power(10,V_exp)
         cs = contourf(xx,yy,transpose(f1[tk][tracerkey][:,:,zi]),V,norm=colors.LogNorm()); #z slice hardcoded for now, the flip flop is because of the x=column y=row
     else:
-        cs = contourf(xx,yy,transpose(f1[tk][tracerkey][:,:,zi]),V); #z slice hardcoded for now, the flip flop is because of the x=column y=row
+        cs = contourf(xx,yy,transpose(f1[tk][tracerkey][:,:,zi]),V,cmap='jet'); #z slice hardcoded for now, the flip flop is because of the x=column y=row
     #imshow(transpose(f1[tk][tracer][:,:,0]),origin='lower',extent=(0,max(xx),0,max(yy))); #z slice hardcoded for now, the flip flop is because of the x=column y=row
 #    bar = colorbar(orientation='horizontal');
     tticks = linspace(V.min(),V.max(),10);
