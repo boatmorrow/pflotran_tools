@@ -95,6 +95,30 @@ def PlotHeadDistribution2dXY(time,z,inputfile):
     #show();
     f1.close();
      
+def PlotSaturationDistribution2dXY(time,z,inputfile):
+    '''Plots the liquid saturation distribution for a 2-d isothermal, fresh-water slice in the XY plane at location z.  Will use the time key closest to the desired time.'''
+    xx,yy,zz = GetCellCenters(inputfile);
+    zindex = (abs(zz-z)).argmin();
+    #this is in model time 
+    f1 = h5py.File(inputfile,'r');
+    #pdb.set_trace();
+    times,timekeys = GetTimeInfo(inputfile);
+    tk = timekeys[(abs(time-times)).argmin()];
+    #figure();
+    hxy = f1[tk]['Liquid_Saturation'][:,:,zindex]
+    Vmin = hxy.min()
+    Vmax = hxy.max()
+    V = linspace(Vmin,Vmax,50); #linspace for now.  could add logspace option...
+    cs = contourf(xx,yy,transpose(hxy),V); #The flip flop is because of the x=column y=row
+    tticks = linspace(V.min(),V.max(),10);
+    bar = colorbar(ticks=tticks,format='%4.1e');
+    bar.set_label('Saturation');
+    xlabel('X distance (m)');
+    ylabel('Y distance (m)');
+    title('Time = '+str(time));
+    #show();
+    f1.close();
+     
 def PlotHeadDistribution2dXZ(time,y,inputfile):
     '''plots the pressure head distribution for a 2-d isothermal, fresh-water slice in the XZ plane at location y.  will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
@@ -113,6 +137,30 @@ def PlotHeadDistribution2dXZ(time,y,inputfile):
     tticks = linspace(V.min(),V.max(),10);
     bar = colorbar(ticks=tticks,format='%4.1e');
     bar.set_label('Head');
+    xlabel('X distance (m)');
+    ylabel('Z distance (m)');
+    title('Time = '+str(time));
+    #show();
+    f1.close();
+
+def PlotSaturationDistribution2dXZ(time,y,inputfile):
+    '''Plots the liquid saturation distribution for a 2-d isothermal, fresh-water slice in the XZ plane at location y.  Will use the time key closest to the desired time.'''
+    xx,yy,zz = GetCellCenters(inputfile);
+    yindex = (abs(yy-y)).argmin();
+    #this is in model time 
+    f1 = h5py.File(inputfile,'r');
+    #pdb.set_trace();
+    times,timekeys = GetTimeInfo(inputfile);
+    tk = timekeys[(abs(time-times)).argmin()];
+    #figure();
+    hxz = f1[tk]['Liquid_Saturation'][:,yindex,:]
+    Vmin = hxz.min()
+    Vmax = hxz.max()
+    V = linspace(Vmin,Vmax,50); #linspace for now.  could add logspace option...
+    cs = contourf(xx,zz,transpose(hxz),V); #The flip flop is because of the x=column y=row
+    tticks = linspace(V.min(),V.max(),10);
+    bar = colorbar(ticks=tticks,format='%4.1e');
+    bar.set_label('Saturation');
     xlabel('X distance (m)');
     ylabel('Z distance (m)');
     title('Time = '+str(time));
@@ -137,6 +185,30 @@ def PlotHeadDistribution2dYZ(time,x,inputfile):
     tticks = linspace(V.min(),V.max(),10);
     bar = colorbar(ticks=tticks,format='%4.1e');
     bar.set_label('Head');
+    xlabel('Y distance (m)');
+    ylabel('Z distance (m)');
+    title('Time = '+str(time));
+    #show();
+    f1.close();
+     
+def PlotSaturationDistribution2dYZ(time,x,inputfile):
+    '''Plots the liquid saturation distribution for a 2-d isothermal, fresh-water slice in the YZ plane at location x.  Will use the time key closest to the desired time.'''
+    xx,yy,zz = GetCellCenters(inputfile);
+    xindex = (abs(xx-x)).argmin();
+    #this is in model time 
+    f1 = h5py.File(inputfile,'r');
+    #pdb.set_trace();
+    times,timekeys = GetTimeInfo(inputfile);
+    tk = timekeys[(abs(time-times)).argmin()];
+    #figure();
+    hyz = f1[tk]['Liquid_Saturation'][xindex,:,:]
+    Vmin = hyz.min()
+    Vmax = hyz.max()
+    V = linspace(Vmin,Vmax,50); #linspace for now.  could add logspace option...
+    cs = contourf(yy,zz,transpose(hyz),V); #The flip flop is because of the x=column y=row
+    tticks = linspace(V.min(),V.max(),10);
+    bar = colorbar(ticks=tticks,format='%4.1e');
+    bar.set_label('Saturation');
     xlabel('Y distance (m)');
     ylabel('Z distance (m)');
     title('Time = '+str(time));
