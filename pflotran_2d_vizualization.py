@@ -463,8 +463,11 @@ def GetTracerXZSlice(tracer,y,time,inputfile):
     f1 = h5py.File(inputfile,'r');
     yindex = (abs(yy-y)).argmin();
     tk = timekeys[abs(time-array(times)).argmin()];
-    tracerkey = 'Total_'+tracer+' [M]'
-    sxz = f1[tk][tracerkey][:,yindex,:];
+    try:
+        sxz = f1[tk][tracer][:,yindex,:]
+    except KeyError:
+        tracerkey = 'Total_'+tracer+' [M]'
+        sxz = f1[tk][tracerkey][:,yindex,:];
     f1.close();
     return sxz,xx,zz
 
