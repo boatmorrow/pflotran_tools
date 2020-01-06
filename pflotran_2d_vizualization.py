@@ -547,14 +547,17 @@ def GetTracerXZSlice(tracer,y,time,inputfile):
 def GetTracerXProfile(tracer,y,z,time,inputfile):
     '''Returns an array of the tracer concentration along an x progile at the y and z location at the nearest timekey
     in the model output file.'''
-    tracerkey = 'Total_'+tracer+' [M]'
     xx,yy,zz = GetCellCenters(inputfile)
     times,timekeys = GetTimeInfo(inputfile)
     f1 = h5py.File(inputfile,'r')
     yindex = (abs(yy-y)).argmin()
     zindex = (abs(zz-z)).argmin()
     tk = timekeys[abs(time-array(times)).argmin()]
-    sx = f1[tk][tracerkey][:,yindex,zindex]
+    try:
+        sx = f1[tk][tracer][:,yindex,zindex]
+    except KeyError:
+        tracerkey = 'Total_'+tracer+' [M]'
+        sx = f1[tk][tracerkey][:,yindex,zindex]
     f1.close()
     return sx,xx
     
