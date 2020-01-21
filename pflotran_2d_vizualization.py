@@ -233,7 +233,7 @@ def PlotMaterialDistribution2dXZ(time,y,inputfile):
     #tticks = linspace(V.min(),V.max(),10);
     bar = colorbar()
     #bar.set_label('Head');
-    xlabel('Y distance (m)');
+    xlabel('X distance (m)');
     ylabel('Z distance (m)');
     title('Material Distribution');
     #show();
