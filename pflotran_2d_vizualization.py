@@ -374,12 +374,12 @@ def PlotTracerZProfile(tracer,x,y,time,inputfile,logflag=False):
     xindex = (abs(xx-x)).argmin()
     tk = timekeys[abs(time-array(times)).argmin()]
     try:
-        sz = f1[tk][tracer][:,yindex,xindex]
+        sz = f1[tk][tracer][xindex,yindex,:]
     except KeyError:
         tracerkey = 'Total_'+tracer+' [M]'
         sz = f1[tk][tracerkey][xindex,yindex,:]
     f1.close()
-    plot(sz,zz,'ro-',mec=k)
+    plot(sz,zz,'ro-',mec='k')
     xlabel(tracer)
     ylabel('Z')
     title('Time = ' + tk)
@@ -624,7 +624,7 @@ def GetHeadZProfile(x,y,time,inputfile):
     yindex = (abs(yy-y)).argmin()
     xindex = (abs(xx-x)).argmin()
     tk = timekeys[abs(time-array(times)).argmin()]
-    sz = f1[tk]['Liquid_Pressure [Pa]'][[xindex,yindex,:]]/1000./9.8+zz
+    sz = f1[tk]['Liquid_Pressure [Pa]'][xindex,yindex,:]/1000./9.8+zz
     f1.close()
     return sz,zz
     
