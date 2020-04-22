@@ -364,6 +364,27 @@ def PlotMeanAgeDistribution(time,inputfile):
     #show();
     f1.close();
 
+def PlotTracerZProfile(tracer,x,y,time,inputfile,logflag=False):
+    ''' PlotTracerZProfile(tracer,x,y,time,inputfile,logflag=False).  Plots a profile for the tracer (key) at the nearest x and y location and time.  '''
+    
+    xx,yy,zz = GetCellCenters(inputfile)
+    times,timekeys = GetTimeInfo(inputfile)
+    f1 = h5py.File(inputfile,'r')
+    yindex = (abs(yy-y)).argmin()
+    xindex = (abs(xx-x)).argmin()
+    tk = timekeys[abs(time-array(times)).argmin()]
+    try:
+        sz = f1[tk][tracer][:,yindex,xindex]
+    except KeyError:
+        tracerkey = 'Total_'+tracer+' [M]'
+        sz = f1[tk][tracerkey][xindex,yindex,:]
+    f1.close()
+    plot(sz,zz,'ro-',mec=k)
+    xlabel(tracer)
+    ylabel('Z')
+    title('Time = ' + tk)
+    show()
+
 def Plot3He3HAgeDistribution(time,inputfile):
     '''Plots the tritium helium age distribution for a given time. Depth value is hard coded to the bottom layer right now. Will use the time key closest to the desired time.'''
     xx,yy,zz = GetCellCenters(inputfile);
@@ -574,6 +595,38 @@ def GetHeadXProfile(y,z,time,inputfile):
     sx = f1[tk]['Liquid_Pressure [Pa]'][:,yindex,zindex]/1000./9.8+zz[zindex]
     f1.close()
     return sx,xx
+    
+#get a z profile
+def GetTracerZProfile(tracer,x,y,time,inputfile):
+    '''Returns an array of the tracer concentration along an z progile at the x and y location at the nearest timekey
+    in the model output file.'''
+    xx,yy,zz = GetCellCenters(inputfile)
+    times,timekeys = GetTimeInfo(inputfile)
+    f1 = h5py.File(inputfile,'r')
+    yindex = (abs(yy-y)).argmin()
+    xindex = (abs(xx-x)).argmin()
+    tk = timekeys[abs(time-array(times)).argmin()]
+    try:
+        sz = f1[tk][tracer][:,yindex,xindex]
+    except KeyError:
+        tracerkey = 'Total_'+tracer+' [M]'
+        sz = f1[tk][tracerkey][xindex,yindex,:]
+    f1.close()
+    return sz,zz
+    
+#get a x profile
+def GetHeadZProfile(x,y,time,inputfile):
+    '''Returns an array of the head along an z profile at the x and y location at the nearest timekey
+    in the model output file.'''
+    xx,yy,zz = GetCellCenters(inputfile)
+    times,timekeys = GetTimeInfo(inputfile)
+    f1 = h5py.File(inputfile,'r')
+    yindex = (abs(yy-y)).argmin()
+    xindex = (abs(xx-x)).argmin()
+    tk = timekeys[abs(time-array(times)).argmin()]
+    sz = f1[tk]['Liquid_Pressure [Pa]'][[xindex,yindex,:]]/1000./9.8+zz
+    f1.close()
+    return sz,zz
     
 #get a y slice
 def GetTracerYZSlice(tracer,x,time,inputfile):
