@@ -262,39 +262,45 @@ def write_grid_card_dx(dx,dy,dz,grav=(0.,0.,0.),origin=(0.,0.,0,),invert_z=False
     dz_len=str(len(dz));
     dy_len=str(len(dy));
     gfile = file('grid.txt','w');
-    i=0;
+    i=0
+    ddx = []
+    ddy = []
+    ddz = []
     for x in dx:
         if i%10.==0:
             if i != 0:
-                dx.insert(i,'\\'+'\n')
-                i=i+1;
+                ddx.append('%13.11e' %dx[i]+' ')
+                ddx.append('\\'+'\n')
+                i=i+1
                 continue
-        dx[i]='%13.11e' %dx[i]+' '
+        ddx.append('%13.11e' %dx[i]+' ')
         i=i+1
 
     i=0
     for y in dy:
         if i%10.==0:
             if i != 0:
-                dy.insert(i,'\\'+'\n')
+                ddy.append('%13.11e' %dy[i]+' ')
+                ddy.append('\\'+'\n')
                 i=i+1
                 continue
-        dy[i]='%13.11e' %dy[i]+' '
+        ddy.append('%13.11e' %dy[i]+' ')
         i=i+1
 
-    i=0;
+    i=0
     for z in dz:
         if i%10.==0:
             if i != 0:
-                dz.insert(i,'\\'+'\n')
-                i=i+1;
+                ddz.append('%13.11e' %dz[i]+' ')
+                ddz.append('\\'+'\n')
+                i=i+1
                 continue
-        dz[i]='%13.11e' %dz[i]+' '
+        ddz.append('%13.11e' %dz[i]+' ')
         i=i+1
 
-    dx.append('\n')
-    dy.append('\n')
-    dz.append('\n')
+    ddx.append('\n')
+    ddy.append('\n')
+    ddz.append('\n')
 
     gfile.write('GRID\n')
     gfile.write('  TYPE structured\n')
@@ -305,9 +311,9 @@ def write_grid_card_dx(dx,dy,dz,grav=(0.,0.,0.),origin=(0.,0.,0,),invert_z=False
     gfile.write('  NXYZ '+dx_len+' '+dy_len+' '+dz_len+'\n')
     gfile.write('  DXYZ\n')
 
-    gfile.writelines(dx)
-    gfile.writelines(dy)
-    gfile.writelines(dz)
+    gfile.writelines(ddx)
+    gfile.writelines(ddy)
+    gfile.writelines(ddz)
     gfile.write('  /\n')
     gfile.write('END\n')
     gfile.close()
@@ -382,6 +388,48 @@ def change_perm(ifile,ofile,material,perm):
         if iflag:
             if line.split()[0][0:5] == 'PERM_':
                 ll[i] = '    '+ line.split()[0] +' ' + str(perm) + '\n'
+    
+    #write the new file
+    f = open(ofile,'w')
+    f.writelines(ll)
+    f.close()
+    return
+
+def change_perm_tensor(ifile,ofile,material,perm_x,perm_y,perm_z):
+    '''change the permeability in the material card.'''
+
+    #open the inputfile
+    f = open(ifile,'r')
+    ll=f.readlines()
+    f.close()
+
+    #parse and replace relavent fields
+    iflag = 0
+    for i in xrange(len(ll)):
+        line = ll[i]
+        try:
+            line.split()[0] == 'MATERIAL_PROPERTY'
+        except IndexError:
+            continue
+        else:
+            try:
+                line.split()[1] == material
+            except IndexError:
+                if line.split()[0] == 'END':
+                    iflag = 0
+                continue
+            else:
+                if line.split()[1] == material:
+                    iflag = 1
+                    continue
+
+        if iflag:
+            if line.split()[0][0:6] == 'PERM_X':
+                ll[i] = '    '+ line.split()[0] +' ' + str(perm_x) + '\n'
+            if line.split()[0][0:6] == 'PERM_Y':
+                ll[i] = '    '+ line.split()[0] +' ' + str(perm_y) + '\n'
+            if line.split()[0][0:6] == 'PERM_Z':
+                ll[i] = '    '+ line.split()[0] +' ' + str(perm_z) + '\n'
     
     #write the new file
     f = open(ofile,'w')
