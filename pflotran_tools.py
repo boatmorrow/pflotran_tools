@@ -138,7 +138,7 @@ def read_pflotran_h5(h5file='pflotran.h5'):
     z_n = f1['Coordinates']['Z [m]'][:];
     #get block center coordinates
     
-def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',date_start=dt.datetime(1930,01,01)):
+def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',map_time2date=False,date_start=dt.datetime(1930,01,01)):
     '''reads in the observation point file from plotran and returns a pandas dataframe indexed by the 
     date.  Needs to know the start date of the model timesteps.  Assumes that the model time recorded
     by pflotran is date_start + time.'''
@@ -146,37 +146,35 @@ def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',date_start=dt.datetim
     # read in the output observation point
     ################################################################################
     f = file(obsptfile,'r');
-    ll = f.readlines();
-    f.close();
+    header = f.readline()
     #first we need to deal with that nast ass header
-    header = ll[0];
-    lh = header.split(',');
+    lh = header.split(',')
     for i in range(len(lh)):
         lh_i = lh[i].strip();    
         lh_i = lh_i.strip('"');
-        lh[i]= string.join(lh_i.split(' ')[0:2],'_');  #just keep the first part of the original
+        #lh[i]= string.join(lh_i.split(' ')[0:2],'_');  #just keep the first part of the original
         #lh[i]=lh_i.split(' ')[0]
-    header2 = string.join(lh,sep=' ');
     #now write the new mangle observation file (for now until I figure out to just change this to a Pandas data frame)
-    ll[0] = header2+'\n';
-    for s in range(len(ll)):
-       ll[s] = string.join(ll[s].lstrip().split())+'\n';
-    f = file('observation-59pg.txt','w');
-    f.writelines(ll);
-    f.close();
-    f = file('observation-59pg.txt','r');   
-    df = pandas.read_csv(f,sep=' ');
+    print "reading in file"
+    df = pandas.read_csv(f, sep='\s+', skiprows=0,names=lh,index_col=0)
     f.close()
-    days = df['Time_[y]']*365.25;  #change the plotran timestep output in years to days (this may change with different models - not sure...)
-    years = ones(len(days));
-    dyear = date_start;  
-    df['Date']=dyear; #stat out at the start date
-    
-    for i in range(len(days)):
-        d = dt.timedelta(days=days[i]);
-        df['Date'][i] = df['Date'][i]+d;    # the true time is modeled time plus the start_time
-    #set_trace();
-    df_mod = df.set_index('Date');  # the pandas dataframe indexed on time
+    print "done reading, now mapping time"
+    if map_time2date:
+        try:
+            days = df['Time_[y]']*365.25;  #change the plotran timestep output in years to days (this may change with different models - not sure...)
+        except KeyError:
+            days = df['Time_[yr]']*365.25
+        years = ones(len(days));
+        dyear = date_start;  
+        df['Date']=dyear; #stat out at the start date
+        
+        for i in range(len(days)):
+            d = dt.timedelta(days=days[i]);
+            df['Date'][i] = df['Date'][i]+d;    # the true time is modeled time plus the start_time
+        #set_trace();
+        df_mod = df.set_index('Date');  # the pandas dataframe indexed on time
+    else:
+        df_mod=df
     return df_mod
 
 def ReadPflotranObsPt(obsptfile='observation-59.tec'):

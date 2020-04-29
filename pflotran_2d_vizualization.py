@@ -15,6 +15,17 @@ import noble_gas_tools as ng
 from matplotlib import ticker, cm, colors
 
 
+#print tracer keys
+def PrintOutputKeys(inputfile):
+    times,timekeys = GetTimeInfo(inputfile)
+    tk = timekeys[0]
+    f1 = h5py.File(inputfile,'r')
+    kk = sort(f1[tk].keys()) 
+    print kk
+    f1.close()
+    return
+    
+
 # get the coordinate array turn them to cell center coordinates - I think this will only work for block grids...
 def GetCellCenters(inputfile):
     '''Gets the cell centers for rectangular grids from a pflotran h5 file.  Returns xx,yy,zz the cell center
@@ -46,20 +57,15 @@ def GetTimeInfo(inputfile):
     times = [];
     timekeys = [];
     #tracer = 'H3'
-    #pdb.set_trace();
     for k in f1.keys():
         kk = k.split()[0];
         if kk =='Time:':
             times.append(float(k.split()[1]));
             timekeys.append(k);
-            #he4_f = reshape(f1[k][tracer+'_tot_M'],(len(xmid)));
-            #he4_f = reshape(f1[k]['CFC11_tot_M'],(len(xmid)));
-            #plot(xmid,he4_f,label='t = '+k.split()[1]);
-    #pdb.set_trace();
     #timekeys = sort(timekeys);
     #times = sort(times);
-    timekeys = array(timekeys);
-    times = array(times);
+    timekeys = array(timekeys)
+    times = array(times)
     f1.close();
     return times,timekeys
 
