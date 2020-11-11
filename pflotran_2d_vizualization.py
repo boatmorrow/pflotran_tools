@@ -546,7 +546,11 @@ def GetTracerObsSeries(tracer,x,y,z,inputfile):
     times,timekeys = GetTimeInfo(inputfile);
     ts = [];
     for k in timekeys:
-        ck = f1[k][tracer][xindex,yindex,zindex];  #not sure if z index is correct yet
+        try:
+            ck = f1[k][tracer][xindex,yindex,zindex];  #not sure if z index is correct yet
+        except KeyError:
+            tracerkey = 'Total_'+tracer+' [M]'
+            ck = f1[k][tracerkey][xindex,yindex,zindex];  #not sure if z index is correct yet
         #pdb.set_trace();
         ts.append(ck);
     #this is in model time 
