@@ -127,7 +127,7 @@ def calc_grav_vec(dip,strike,g_mag=-9.8086):
     Fy = n.cos((90.-strike)*n.pi/180.)*Fxy
     Fx = n.cos(strike*n.pi/180.)*Fxy
     g = [Fx,Fy,Fz]
-    for i in xrange(len(g)):
+    for i in range(len(g)):
         if abs(g[i]) <= 1e-3:
             g[i] = 0.
     return tuple(g)
@@ -164,7 +164,7 @@ def write_grid_card_bounds(nxyz,b_min,b_max,grav=(0.,0.,0.),origin=(0.,0.,0.),in
     gc.append('END')
     f.writelines(gc)
     f.close()
-    print 'file written'
+    print('file written')
     return
 
 def write_layered_dx(x):
@@ -182,7 +182,7 @@ def write_layered_dx(x):
         if l.bias == 0:
             px = sum(dx)
             tx = px + l.h
-            for i in xrange(nx):
+            for i in range(nx):
                 dx = n.append(dx,x1)
             #hit end of layer on the nose
             dx[-1] = tx - sum(dx[0:-1])
@@ -190,13 +190,13 @@ def write_layered_dx(x):
             if x[l_count+1].bias == 0:
                 x1 = x[l_count+1].h/x[l_count+1].n_step # want to end with the next grid spacing
             else:
-                print 'not sure what do with bias min x distance, figure it out'
+                print('not sure what do with bias min x distance, figure it out')
             args=(l.h,nx,x1)
             bx = optimize.bisect(txb_diff_single_bias,1.,2.5,args=args);
             px = sum(dx)
             tx = px+l.h
             #construct the biased vector
-            for i in xrange(1,int(nx)):
+            for i in range(1,int(nx)):
                 dx = n.append(dx,x1*bx**(nx-(i+1)))
             #hit end of bias on the nose
             dx[-1] = tx - sum(dx[0:-1])
@@ -204,12 +204,12 @@ def write_layered_dx(x):
             if l.num >= 1:
                 x1 = dx[-1] #start with last grid spacing
             else:
-                print 'not sure what to do about min x distance, figure it out'
+                print('not sure what to do about min x distance, figure it out')
             bx = optimize.bisect(txb_diff_single_bias,1.,2.5,args=(l.h,nx,x1));
             px = sum(dx)
             tx = px+l.h
             #construct the biased vector
-            for i in xrange(1,int(nx)):
+            for i in range(1,int(nx)):
                 dx = n.append(dx,x1*bx**(i-1));
 
             #hit end of domain on the nose
@@ -218,30 +218,30 @@ def write_layered_dx(x):
             if l.num >= 1:
                 x1 = dx[-1] #start with last grid spacing
             else:
-                print 'not sure what to do about min x distance, figure it out'
+                print('not sure what to do about min x distance, figure it out')
             # now to figure out the correct bias (for a dual bias)
             nnx = nx/2-1;
             px = sum(dx)
             tx = px+l.h
             bx = optimize.bisect(txb_diff_dual_bias,1.,2.5,args=(l.h,nx,x1));
             #first half of the biased vector
-            for i in xrange(1,int(nx/2)):
+            for i in range(1,int(nx/2)):
                 dx = n.append(dx,x1*bx**(i-1));
             #second half of the biased x vector
-            for i in xrange(1,int(nx/2)):
+            for i in range(1,int(nx/2)):
                 dx = nappend(dx,x1*bx**(nnx-(i)));
             #hit end of bias on the nose
             dx[-1] = tx - sum(dx[0:-1]);
         tl = n.sum(dx)-px
-        print 'Total thickness of layer ' + l.name + ' = %1.2g units' % tl
+        print('Total thickness of layer ' + l.name + ' = %1.2g units' % tl)
         l_count += 1
 
     #make the ending length get us to a the desired total length.
-    print "layer discretization error %1.5g" % (txx-tx)
+    print("layer discretization error %1.5g" % (txx-tx))
     dx[-1] = txx - sum(dx[0:-1])
 
     dxx=list(dx)
-    print 'Total layered thickness' + l.name +' = %1.2g units' %(sum(dxx))
+    print('Total layered thickness' + l.name +' = %1.2g units' %(sum(dxx)))
     return dxx
 
 def write_grid_card_dx(dx,dy,dz,grav=(0.,0.,0.),origin=(0.,0.,0,),invert_z=False):
@@ -317,7 +317,7 @@ def write_grid_card_dx(dx,dy,dz,grav=(0.,0.,0.),origin=(0.,0.,0,),invert_z=False
     gfile.write('  /\n')
     gfile.write('END\n')
     gfile.close()
-    print 'file written'
+    print('file written')
 
 def change_por(ifile,ofile,material,por):
     '''change the permeability in the material card.'''
@@ -329,7 +329,7 @@ def change_por(ifile,ofile,material,por):
 
     #parse and replace relavent fields
     iflag = 0
-    for i in xrange(len(ll)):
+    for i in range(len(ll)):
         line = ll[i]
         try:
             line.split()[0] == 'MATERIAL_PROPERTY'
@@ -367,7 +367,7 @@ def change_perm(ifile,ofile,material,perm):
 
     #parse and replace relavent fields
     iflag = 0
-    for i in xrange(len(ll)):
+    for i in range(len(ll)):
         line = ll[i]
         try:
             line.split()[0] == 'MATERIAL_PROPERTY'
@@ -405,7 +405,7 @@ def change_perm_tensor(ifile,ofile,material,perm_x,perm_y,perm_z):
 
     #parse and replace relavent fields
     iflag = 0
-    for i in xrange(len(ll)):
+    for i in range(len(ll)):
         line = ll[i]
         try:
             line.split()[0] == 'MATERIAL_PROPERTY'
@@ -448,7 +448,7 @@ def change_flow_condition_flux(ifile,ofile,bc_name,flux):
     #parse and replace relavent fields
     iflag = 0
     fflag = 0
-    for i in xrange(len(ll)):
+    for i in range(len(ll)):
         line = ll[i]
         try:
             line.split()[0] == 'FLOW_CONDITION'
@@ -492,7 +492,7 @@ def change_flow_condition_rate(ifile,ofile,bc_name,rate):
     #parse and replace relavent fields
     iflag = 0
     fflag = 0
-    for i in xrange(len(ll)):
+    for i in range(len(ll)):
         line = ll[i]
         try:
             line.split()[0] == 'FLOW_CONDITION'
@@ -537,7 +537,7 @@ def change_cap_press_params_vg(ifile,ofile,sat_func,m,alpha):
     iflag = 0
     lflag = 0
 
-    for i in xrange(len(ll)):
+    for i in range(len(ll)):
         line = ll[i]
         try:
             line.split()[0] == 'CHARACTERISTIC_CURVES'
@@ -591,7 +591,7 @@ def change_rel_perm_params_mualem(ifile,ofile,sat_func,m,res_sat):
     iflag = 0
     lflag = 0
 
-    for i in xrange(len(ll)):
+    for i in range(len(ll)):
         line = ll[i]
         try:
             line.split()[0] == 'CHARACTERISTIC_CURVES'
@@ -645,7 +645,7 @@ def insert_card(ifile,ofile,pattern,cardfile):
     f.close()
     
     #now march through and find the right places to insert
-    for i in xrange(len(ll)):
+    for i in range(len(ll)):
         line = string.strip(ll[i])
         if line == pattern:
             for x in reversed(il):
@@ -658,7 +658,7 @@ def insert_card(ifile,ofile,pattern,cardfile):
 def txb_diff_single_bias(bx,tfx,nx,x1):
     '''returns the difference between the desired distance (args[0]) and the calculated distance for a bias of bx, with args[1] steps.'''
     tbx = 0;
-    for i in xrange(1,(int(nx))):
+    for i in range(1,(int(nx))):
         tbx = tbx+(x1*bx**(i-1));
     return tbx-tfx;
 
@@ -667,6 +667,6 @@ def txb_diff_dual_bias(bx,tfx,nx,x1):
     '''returns the difference between the desired distance (args[0]) and the calculated distance for a bias of bx, with args[1] steps. Dual biased vector'''
     tbx = 0;
     tfx = tfx/2;
-    for i in xrange(1,(int(nx/2))):
+    for i in range(1,(int(nx/2))):
         tbx = tbx+(x1*bx**(i-1));
     return tbx-tfx;

@@ -113,14 +113,14 @@ def get_evolution(dirpath='.'):
 
 def make_tracer_evo_plot(dd_dict):
     ''' Simple routine for making a tracer breakthrough plot'''
-    for k in dd_dict.iterkeys():
+    for k in dd_dict.keys():
         dd = dd_dict[k];
         plot(dd['X'],dd['Tracer_tot_M'],label='time = '+ str(k));
 
 
 def get_final_data(dd_dict):
     '''gets the final time and data dictionary'''
-    max_t=amax(dd_dict.keys());
+    max_t=amax(list(dd_dict.keys()));
     dde = dd_dict[max_t];
     return max_t,dde
 
@@ -138,7 +138,7 @@ def read_pflotran_h5(h5file='pflotran.h5'):
     z_n = f1['Coordinates']['Z [m]'][:];
     #get block center coordinates
     
-def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',map_time2date=False,date_start=dt.datetime(1930,01,01)):
+def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',map_time2date=False,date_start=dt.datetime(1930,0o1,0o1)):
     '''reads in the observation point file from plotran and returns a pandas dataframe indexed by the 
     date.  Needs to know the start date of the model timesteps.  Assumes that the model time recorded
     by pflotran is date_start + time.'''
@@ -155,10 +155,10 @@ def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',map_time2date=False,d
         #lh[i]= string.join(lh_i.split(' ')[0:2],'_');  #just keep the first part of the original
         #lh[i]=lh_i.split(' ')[0]
     #now write the new mangle observation file (for now until I figure out to just change this to a Pandas data frame)
-    print "reading in file"
+    print("reading in file")
     df = pandas.read_csv(f, sep='\s+', skiprows=0,names=lh,index_col=0)
     f.close()
-    print "done reading, now mapping time"
+    print("done reading, now mapping time")
     if map_time2date:
         try:
             days = df['Time_[y]']*365.25;  #change the plotran timestep output in years to days (this may change with different models - not sure...)
@@ -250,7 +250,7 @@ def CalcResidualObsPt(df_obs,df_mod,iVars,lst_sq_flag=0):
             #may want to add a normalization routine here...
         
         for l in lines:
-            print l;  # print because in the dakota scriptology this output head to dakota.
+            print(l);  # print because in the dakota scriptology this output head to dakota.
     
     else:
         Am = array([]);
@@ -258,7 +258,7 @@ def CalcResidualObsPt(df_obs,df_mod,iVars,lst_sq_flag=0):
         for v in iVars:
             Am = concatenate((Am,df_i[v].values));
             d = concatenate((d,df_obs[v].values));
-        print linalg.norm((Am-d));
+        print(linalg.norm((Am-d)));
 
 def make_obs_pt_hist_plot(dd,iVar):
     '''Plots up a history of iVar vs. time for a given obs pt which has been read in to a Pandas data frame
@@ -316,7 +316,7 @@ def make_modern_recharge(df,model_time_0=dt.datetime(1776,1,1)):
     s.append('TRANSPORT_CONDITION modern_recharge\n');
     s.append('  TYPE dirichlet_zero_gradient\n');
     s.append('  CONSTRAINT_LIST\n')
-    for i in xrange(df):
+    for i in range(df):
         seconds = (df.index[i] - model_time_0).total_seconds #needs to be in seconds for pflotran
         sec_str = '%1.5E' %seconds
         const_nm = df.index[i].isotdate()
