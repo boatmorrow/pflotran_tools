@@ -294,8 +294,8 @@ def make_obs_pt_hist_plot(dd,iVar):
     show();
 
 def make_modern_recharge(df,model_time_0=dt.datetime(1776,1,1)):
-    '''produced two files the list of constrains and the condition for modern recharge for each date (limited to daly right now), df needs to be a time indexed data frame in mol/kg e.g. produced by get_atm_conc, and the date where the model begins'''
-    f = file('Modern_Constraints.txt','w')
+    '''produces two files, the list of constrains and the conditions for modern recharge for each date (limited to daly right now), df needs to be a time indexed data frame in mol/kg e.g. produced by get_atm_conc, and the date where the model begins'''
+    f = open('Modern_Constraints.txt','w')
     s = []
     for i in range(len(df)):
         s.append('CONSTRAINT ' + df.index[i].isodate() +'\n')
@@ -311,7 +311,7 @@ def make_modern_recharge(df,model_time_0=dt.datetime(1776,1,1)):
     f.writelines(s);
     f.close();
 
-    ff = file('Modern_Recharge_Condition.txt','w');
+    ff = open('Modern_Recharge_Condition.txt','w');
     s = [];
     s.append('TRANSPORT_CONDITION modern_recharge\n');
     s.append('  TYPE dirichlet_zero_gradient\n');
