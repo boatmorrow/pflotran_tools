@@ -1,0 +1,451 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A_i	visualiztion_scripts/make_tracer_plot_point.py	/^A_i = A_i\/3.156e7; #years$/;"	v
+Ar39_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^Ar39_age = [];$/;"	v
+Ar39_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^Ar39_age = array(Ar39_age);$/;"	v
+Ar39_max_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^Ar39_max_age = 1000.;$/;"	v
+Ar39_std	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^Ar39_std = [];$/;"	v
+Ar39_std	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^Ar39_std = array(Ar39_std);$/;"	v
+CFC12M_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^CFC12M_age = [];$/;"	v
+CFC12M_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^CFC12M_age = array(CFC12M_age);$/;"	v
+CFC12_max_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^CFC12_max_age = 60.;$/;"	v
+CFC12_std	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^CFC12_std = [];$/;"	v
+CFC12_std	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^CFC12_std = array(CFC12_std);$/;"	v
+CalcResidualObsPt	pflotran_tools.py	/^def CalcResidualObsPt(df_obs,df_mod,iVars,lst_sq_flag=0):$/;"	f
+GetCellCenters	pflotran_2d_vizualization.py	/^def GetCellCenters(inputfile):$/;"	f
+GetMaxTime	pflotran_2d_vizualization.py	/^def GetMaxTime(inputfile):$/;"	f
+GetTimeInfo	pflotran_2d_vizualization.py	/^def GetTimeInfo(inputfile):$/;"	f
+GetTracerObsSeries	pflotran_2d_vizualization.py	/^def GetTracerObsSeries(tracer,x,y,z,inputfile):$/;"	f
+GetTracerXProfile	pflotran_2d_vizualization.py	/^def GetTracerXProfile(tracer,y,z,time,inputfile):$/;"	f
+GetTracerXZSlice	pflotran_2d_vizualization.py	/^def GetTracerXZSlice(tracer,y,time,inputfile):$/;"	f
+GetTracerYZSlice	pflotran_2d_vizualization.py	/^def GetTracerYZSlice(tracer,x,time,inputfile):$/;"	f
+H3He3M_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^H3He3M_age = [];$/;"	v
+H3He3M_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^H3He3M_age = array(H3He3M_age);$/;"	v
+H3He3_max_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^H3He3_max_age = 70.;$/;"	v
+H3He3_std	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^H3He3_std = [];$/;"	v
+H3He3_std	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^H3He3_std = array(H3He3_std);$/;"	v
+Iso	visualiztion_scripts/make_2d_contour.py	/^Iso = str(raw_input('Type in field to image from list above (must match exactly): '));$/;"	v
+Iso	visualiztion_scripts/make_scatter_plot.py	/^       Iso = str(raw_input('Type in variable to plot from list above (must match exactly): ')); $/;"	v
+Iso	visualiztion_scripts/make_scatter_plot.py	/^Iso = str(raw_input('Type in variable to plot from list above (must match exactly): '));$/;"	v
+Iso	visualiztion_scripts/make_tracer_moviefigs_test.py	/^Iso = str(raw_input('Select field to image from list above '));$/;"	v
+LogNorm	geostats/krieg_pilot_pt_permfield.py	/^from matplotlib.colors import LogNorm$/;"	i
+LogNorm	geostats/make_perm_field_realization_pflotran.py	/^from matplotlib.colors import LogNorm$/;"	i
+LogNorm	geostats/make_perm_field_realization_pflotran_3d.py	/^from matplotlib.colors import LogNorm$/;"	i
+LogNorm	geostats/make_por_field_realization_pflotran.py	/^from matplotlib.colors import LogNorm$/;"	i
+LogNorm	geostats/make_por_field_realization_pflotran_3d.py	/^from matplotlib.colors import LogNorm$/;"	i
+MM_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^MM_age = [];$/;"	v
+MM_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^MM_age = array(MM_age);$/;"	v
+MM_std	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^MM_std = [];$/;"	v
+MM_std	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^MM_std = array(MM_std);$/;"	v
+Plot39ArAgeDistribution	pflotran_2d_vizualization.py	/^def Plot39ArAgeDistribution(time,inputfile):$/;"	f
+Plot3He3HAgeDistribution	pflotran_2d_vizualization.py	/^def Plot3He3HAgeDistribution(time,inputfile):$/;"	f
+Plot4HeAgeDistribution	pflotran_2d_vizualization.py	/^def Plot4HeAgeDistribution(time,inputfile):$/;"	f
+Plot81KrAgeDistribution	pflotran_2d_vizualization.py	/^def Plot81KrAgeDistribution(time,inputfile):$/;"	f
+PlotCFC12AgeDistribution	pflotran_2d_vizualization.py	/^def PlotCFC12AgeDistribution(time,inputfile,t_start=1930):$/;"	f
+PlotHeadDistribution2d	pflotran_2d_vizualization.py	/^def PlotHeadDistribution2d(time,inputfile):$/;"	f
+PlotMeanAgeDistribution	pflotran_2d_vizualization.py	/^def PlotMeanAgeDistribution(time,inputfile):$/;"	f
+PlotSF6AgeDistribution	pflotran_2d_vizualization.py	/^def PlotSF6AgeDistribution(time,inputfile,t_start=1930):$/;"	f
+PlotTracerDistribution	pflotran_2d_vizualization.py	/^def PlotTracerDistribution(tracer,time,inputfile):$/;"	f
+PlotVelocity2d	pflotran_2d_vizualization.py	/^def PlotVelocity2d(time,inputfile):$/;"	f
+ReadPflotranObsPt	pflotran_tools.py	/^def ReadPflotranObsPt(obsptfile='observation-59.tec'):$/;"	f
+ReadPflotranObsPtPandas	pflotran_tools.py	/^def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',date_start=datetime(1930,01,01)):$/;"	f
+SF6_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^SF6_age = [];$/;"	v
+SF6_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^SF6_age = array(SF6_age);$/;"	v
+SF6_max_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^SF6_max_age = 45.;$/;"	v
+SF6_std	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^SF6_std = [];$/;"	v
+SF6_std	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^SF6_std = array(SF6_std);$/;"	v
+__init__	pflotran_input_deck_tools.py	/^    def __init__(self,name,dim,loc,strata_nm,ic_cond_nm,cond_nm):$/;"	m	class:pflotran_strata_region
+__init__	pflotran_input_deck_tools.py	/^    def __init__(self,number,thickness,nn,biased):$/;"	m	class:layer
+a	geostats/krieg_pilot_pt_permfield.py	/^a = exp(reshape(prop_init_forcdf,(20,20,1)));$/;"	v
+a	geostats/make_perm_field_realization_pflotran.py	/^a = exp(reshape(prop_init_forcdf,(20,20,1)));$/;"	v
+a	geostats/make_perm_field_realization_pflotran_3d.py	/^a = exp(reshape(prop_init_forcdf,(20,20,5)));$/;"	v
+a	geostats/make_por_field_realization_pflotran.py	/^a = reshape(prop_init_forcdf,(20,20,1));$/;"	v
+a	geostats/make_por_field_realization_pflotran_3d.py	/^a = reshape(prop_init_forcdf,(20,20,5));$/;"	v
+array_defined	geostats/krieg_pilot_pt_permfield.py	/^array_defined = require(array_defined, dtype=uint8, requirements=['F']);$/;"	v
+array_defined	geostats/krieg_pilot_pt_permfield.py	/^array_defined = zeros((i_max, j_max, k_max));$/;"	v
+array_defined	geostats/make_perm_field_realization_pflotran.py	/^array_defined = require(array_defined, dtype=uint8, requirements=['F']);$/;"	v
+array_defined	geostats/make_perm_field_realization_pflotran.py	/^array_defined = zeros((i_max, j_max, k_max));$/;"	v
+array_defined	geostats/make_perm_field_realization_pflotran_3d.py	/^array_defined = require(array_defined, dtype=uint8, requirements=['F']);$/;"	v
+array_defined	geostats/make_perm_field_realization_pflotran_3d.py	/^array_defined = zeros((i_max, j_max, k_max));$/;"	v
+array_defined	geostats/make_por_field_realization_pflotran.py	/^array_defined = require(array_defined, dtype=uint8, requirements=['F']);$/;"	v
+array_defined	geostats/make_por_field_realization_pflotran.py	/^array_defined = zeros((i_max, j_max, k_max));$/;"	v
+array_defined	geostats/make_por_field_realization_pflotran_3d.py	/^array_defined = require(array_defined, dtype=uint8, requirements=['F']);$/;"	v
+array_defined	geostats/make_por_field_realization_pflotran_3d.py	/^array_defined = zeros((i_max, j_max, k_max));$/;"	v
+b	geostats/krieg_pilot_pt_permfield.py	/^b = ones((20,20,1));$/;"	v
+b	geostats/make_perm_field_realization_pflotran.py	/^b = ones((20,20,1));$/;"	v
+b	geostats/make_perm_field_realization_pflotran_3d.py	/^b = ones((20,20,5));$/;"	v
+b	geostats/make_por_field_realization_pflotran.py	/^b = ones((20,20,1));$/;"	v
+b	geostats/make_por_field_realization_pflotran_3d.py	/^b = ones((20,20,5));$/;"	v
+b_flag	abqmesh2pflotran.py	/^                b_flag=0;$/;"	v
+b_flag	abqmesh2pflotran.py	/^            b_flag=0;$/;"	v
+b_flag	abqmesh2pflotran.py	/^        b_flag=1;$/;"	v
+bar	geostats/krieg_pilot_pt_permfield.py	/^bar = colorbar(ticks=t,format='%.2e',orientation='vertical');$/;"	v
+bar	geostats/make_perm_field_realization_pflotran.py	/^bar = colorbar(format=ffmt,orientation='vertical');$/;"	v
+bar	geostats/make_perm_field_realization_pflotran_3d.py	/^bar = colorbar(ticks=t,format='%.2e');$/;"	v
+bar	geostats/make_por_field_realization_pflotran.py	/^bar = colorbar(format='%.2f');$/;"	v
+bar	geostats/make_por_field_realization_pflotran_3d.py	/^bar = colorbar(format='%.2f');$/;"	v
+bar	visualiztion_scripts/make_2d_contour.py	/^    bar = colorbar(orientation='horizontal');$/;"	v
+bar	visualiztion_scripts/make_tracer_moviefigs_test.py	/^    bar = colorbar(orientation='horizontal');$/;"	v
+bins	geostats/krieg_pilot_pt_permfield.py	/^bins = logspace(-16,-8,num=150);$/;"	v
+bins	geostats/make_perm_field_realization_pflotran.py	/^bins = logspace(-16,-8,num=150);$/;"	v
+bins	geostats/make_perm_field_realization_pflotran_3d.py	/^bins = logspace(-15,-8,num=150);$/;"	v
+c_Ar39_atm	visualiztion_scripts/make_age_distribution_slice.py	/^c_Ar39_atm = 1.0211e-20;$/;"	v
+c_Ar39_atm	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    c_Ar39_atm = 1.0211e-20;$/;"	v
+c_flag	visualiztion_scripts/make_scatter_plot.py	/^    c_flag = raw_input('Thank you Sir\/Madame, Would you like to plot another? (Y\/N): ');$/;"	v
+c_flag	visualiztion_scripts/make_scatter_plot.py	/^c_flag = 'Y';$/;"	v
+c_he_atm	visualiztion_scripts/make_age_distribution_slice.py	/^c_he_atm = 2.8253e-15;$/;"	v
+c_he_atm	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    c_he_atm = 2.8253e-15;$/;"	v
+c_he_atm	visualiztion_scripts/make_tracer_plot_point.py	/^c_he_atm = 2.8253e-15;$/;"	v
+calc_grav_vec	pflotran_input_deck_tools.py	/^def calc_grav_vec(dip,strike,g_mag=-9.8086):$/;"	f
+cfc	pflotran_2d_vizualization.py	/^import cfc_tools as cfc$/;"	i
+cfc	visualiztion_scripts/make_age_distribution_slice.py	/^import cfc_tools as cfc$/;"	i
+cfc	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^import cfc_tools as cfc$/;"	i
+cfc	visualiztion_scripts/make_tracer_plot_point.py	/^import cfc_tools as cfc$/;"	i
+change_cap_press_params_vg	pflotran_input_deck_tools.py	/^def change_cap_press_params_vg(ifile,ofile,sat_func,m,alpha):$/;"	f
+change_flow_condition_flux	pflotran_input_deck_tools.py	/^def change_flow_condition_flux(ifile,ofile,bc_name,flux):$/;"	f
+change_flow_condition_rate	pflotran_input_deck_tools.py	/^def change_flow_condition_rate(ifile,ofile,bc_name,rate):$/;"	f
+change_perm	pflotran_input_deck_tools.py	/^def change_perm(ifile,ofile,material,perm):$/;"	f
+change_por	pflotran_input_deck_tools.py	/^def change_por(ifile,ofile,material,por):$/;"	f
+change_rel_perm_params_mualem	pflotran_input_deck_tools.py	/^def change_rel_perm_params_mualem(ifile,ofile,sat_func,m,res_sat):$/;"	f
+check_sum_max_spatial	pflotran_tools.py	/^def check_sum_max_spatial(dd):$/;"	f
+count	abqmesh2pflotran.py	/^	count = 1;$/;"	v
+datetime	get_mult_tracer_residual.py	/^from datetime import datetime$/;"	i
+dd	visualiztion_scripts/make_scatter_plot.py	/^dd = ReadPflotranObsPt(inputfile);$/;"	v
+dd	visualiztion_scripts/make_source_conc_plot.py	/^dd = ReadPflotranObsPt(obsptfile='observation-0.tec');$/;"	v
+df_mod	get_mult_tracer_residual.py	/^df_mod = ReadPflotranObsPtPandas();  #for testing$/;"	v
+df_obs	get_mult_tracer_residual.py	/^df_obs = ReadPflotranObsPtPandas();  #for testing$/;"	v
+dset	geostats/krieg_pilot_pt_permfield.py	/^dset = f.create_dataset('Permeability',data=sgs_realization_pflotran);$/;"	v
+dset	geostats/make_perm_field_realization_pflotran.py	/^dset = f.create_dataset('Permeability',data=sgs_realization_pflotran);$/;"	v
+dset	geostats/make_perm_field_realization_pflotran_3d.py	/^dset = f.create_dataset('Permeability',data=sgs_realization_pflotran);$/;"	v
+dset	geostats/make_por_field_realization_pflotran.py	/^dset = f.create_dataset('Porosity',data=sgs_realization_pflotran);$/;"	v
+dset	geostats/make_por_field_realization_pflotran_3d.py	/^dset = f.create_dataset('Porosity',data=sgs_realization_pflotran);$/;"	v
+e_dict	abqmesh2pflotran.py	/^e_dict={};$/;"	v
+eac	visualiztion_scripts/make_age_distribution_slice.py	/^eac = vfunc(CFC12_sxz,25.0,0.0)\/1e-12; #pptv$/;"	v
+eac	visualiztion_scripts/make_age_distribution_slice.py	/^eac = vfunc(SF6_sxz,25.0,0.0)\/1e-15; #pptv$/;"	v
+eac	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    eac = vfunc(CFC12_sxz,25.0,0.0)\/1e-12; #pptv$/;"	v
+eac	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    eac = vfunc(SF6_sxz,25.0,0.0)\/1e-15; #pptv$/;"	v
+eac	visualiztion_scripts/make_tracer_plot_point.py	/^eac = vfunc(CFC12,25.0,0.0)\/1e-12; #pptv$/;"	v
+eac	visualiztion_scripts/make_tracer_plot_point.py	/^eac = vfunc(SF6,25.0,0.0)\/1e-15; #pptv$/;"	v
+elem_num	abqmesh2pflotran.py	/^elem_num = 8;$/;"	v
+element_array	abqmesh2pflotran.py	/^            element_array=numpy.array(lli,'i8');$/;"	v
+element_array	abqmesh2pflotran.py	/^            element_array=numpy.vstack((element_array,lli));$/;"	v
+elset	abqmesh2pflotran.py	/^                elset = map(int,line.split(',')[0:-1]);$/;"	v
+elset	abqmesh2pflotran.py	/^                elset= elset+map(int,line.split(',')[0:-1]);$/;"	v
+f	geostats/krieg_pilot_pt_permfield.py	/^f = h5py.File('perm_field.h5','w');$/;"	v
+f	geostats/make_perm_field_realization_pflotran.py	/^f = h5py.File('perm_field.h5','w');$/;"	v
+f	geostats/make_perm_field_realization_pflotran_3d.py	/^f = h5py.File('perm_field.h5','w');$/;"	v
+f	geostats/make_por_field_realization_pflotran.py	/^f = h5py.File('por_field.h5','w');$/;"	v
+f	geostats/make_por_field_realization_pflotran_3d.py	/^f = h5py.File('por_field.h5','w');$/;"	v
+f	make_pressure_initial_condition.py	/^f = h5py.File('pflotran.h5','r')$/;"	v
+f1	visualiztion_scripts/make_2d_contour.py	/^f1=h5py.File(inputfile);$/;"	v
+f1	visualiztion_scripts/make_tracer_moviefigs_test.py	/^f1=h5py.File(inputfile);$/;"	v
+f1	visualiztion_scripts/make_tracer_plot_point.py	/^f1 = h5py.File(ifile,'r');$/;"	v
+f2	make_pressure_initial_condition.py	/^f2 = h5py.File('ic_pressure.h5','w')$/;"	v
+face_e	abqmesh2pflotran.py	/^			face_e = numpy.concatenate((face_e,nset[numpy.where(nset==n)[0]]));$/;"	v
+face_e	abqmesh2pflotran.py	/^			face_e = numpy.concatenate((numpy.array([4]),face_e));$/;"	v
+face_e	abqmesh2pflotran.py	/^		face_e = numpy.array([],'int8');$/;"	v
+faces	abqmesh2pflotran.py	/^			faces = numpy.concatenate((numpy.array([4]),face_e));$/;"	v
+faces	abqmesh2pflotran.py	/^			faces = numpy.vstack((faces,face_e));$/;"	v
+ffmt	geostats/make_perm_field_realization_pflotran.py	/^ffmt = matplotlib.ticker.LogFormatterMathtext(labelOnlyBase=True);$/;"	v
+fig1	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^fig1=figure();$/;"	v
+fig2	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^fig2=figure();$/;"	v
+get_age_dist_info_w_dist	pflotran_2d_vizualization.py	/^def get_age_dist_info_w_dist(ifile,x_dist_vec,yr_start,output_yr):$/;"	f
+get_evolution	pflotran_tools.py	/^def get_evolution(dirpath='.'):$/;"	f
+get_final_data	pflotran_tools.py	/^def get_final_data(dd_dict):$/;"	f
+grid	geostats/krieg_pilot_pt_permfield.py	/^grid = SugarboxGrid(i_max, j_max, k_max)$/;"	v
+grid	geostats/make_perm_field_realization_pflotran.py	/^grid = SugarboxGrid(i_max, j_max, k_max)$/;"	v
+grid	geostats/make_perm_field_realization_pflotran_3d.py	/^grid = SugarboxGrid(i_max, j_max, k_max)$/;"	v
+grid	geostats/make_por_field_realization_pflotran.py	/^grid = SugarboxGrid(i_max, j_max, k_max)$/;"	v
+grid	geostats/make_por_field_realization_pflotran_3d.py	/^grid = SugarboxGrid(i_max, j_max, k_max)$/;"	v
+h5_filename	abqmesh2pflotran.py	/^h5_filename = 'mesh_int_drift.h5'$/;"	v
+h5dset	abqmesh2pflotran.py	/^    h5dset = h5file.create_dataset('Regions\/Tunnel_sideset',data=faces);$/;"	v
+h5dset	abqmesh2pflotran.py	/^h5dset = h5file.create_dataset('Domain\/Cells',data=element_array);$/;"	v
+h5dset	abqmesh2pflotran.py	/^h5dset = h5file.create_dataset('Domain\/Vertices',data=vertex_array);$/;"	v
+h5file	abqmesh2pflotran.py	/^h5file = h5py.File(h5_filename,mode='w');$/;"	v
+h5py	abqmesh2pflotran.py	/^import h5py$/;"	i
+h5py	geostats/krieg_pilot_pt_permfield.py	/^import h5py$/;"	i
+h5py	geostats/make_perm_field_realization_pflotran.py	/^import h5py$/;"	i
+h5py	geostats/make_perm_field_realization_pflotran_3d.py	/^import h5py$/;"	i
+h5py	geostats/make_por_field_realization_pflotran.py	/^import h5py$/;"	i
+h5py	geostats/make_por_field_realization_pflotran_3d.py	/^import h5py$/;"	i
+h5py	make_pressure_initial_condition.py	/^import h5py$/;"	i
+h5py	pflotran_2d_vizualization.py	/^import h5py$/;"	i
+h5py	pflotran_tools.py	/^import h5py$/;"	i
+h5py	visualiztion_scripts/make_2d_contour.py	/^import h5py$/;"	i
+h5py	visualiztion_scripts/make_age_distribution_slice.py	/^import h5py$/;"	i
+h5py	visualiztion_scripts/make_scatter_plot.py	/^import h5py$/;"	i
+h5py	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^import h5py$/;"	i
+h5py	visualiztion_scripts/make_tracer_moviefigs_test.py	/^import h5py$/;"	i
+h5py	visualiztion_scripts/make_tracer_plot_point.py	/^import h5py$/;"	i
+header	abqmesh2pflotran.py	/^header = 0;$/;"	v
+i	visualiztion_scripts/make_2d_contour.py	/^    i = i+1;$/;"	v
+i	visualiztion_scripts/make_2d_contour.py	/^i = 0;$/;"	v
+i	visualiztion_scripts/make_scatter_plot.py	/^i = 0;$/;"	v
+i	visualiztion_scripts/make_tracer_moviefigs_test.py	/^    i = i+1;$/;"	v
+i	visualiztion_scripts/make_tracer_moviefigs_test.py	/^i = 0;$/;"	v
+iVars	get_mult_tracer_residual.py	/^iVars=['P','He3_tot_M','He4_tot_M','CFC11_tot_M','CFC12_tot_M','CFC113_tot_M','SF6_tot_M','H3_tot_M'];$/;"	v
+i_max	geostats/krieg_pilot_pt_permfield.py	/^i_max = 500$/;"	v
+i_max	geostats/make_perm_field_realization_pflotran.py	/^i_max = 500$/;"	v
+i_max	geostats/make_perm_field_realization_pflotran_3d.py	/^i_max = 500$/;"	v
+i_max	geostats/make_por_field_realization_pflotran.py	/^i_max = 100$/;"	v
+i_max	geostats/make_por_field_realization_pflotran_3d.py	/^i_max = 250$/;"	v
+ifile	abqmesh2pflotran.py	/^ifile = open(inp_file);$/;"	v
+ifile	visualiztion_scripts/make_2d_conc_dist_plots_4_paper.py	/^ifile = 'pflotran.h5';$/;"	v
+ifile	visualiztion_scripts/make_2d_dist_plots_4_paper.py	/^ifile = 'pflotran.h5';$/;"	v
+ifile	visualiztion_scripts/make_age_distribution_slice.py	/^ifile = 'pflotran.h5'$/;"	v
+ifile	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^ifile = 'pflotran.h5'$/;"	v
+ifile	visualiztion_scripts/make_tracer_plot_point.py	/^ifile = 'pflotran.h5'$/;"	v
+initial_data	geostats/krieg_pilot_pt_permfield.py	/^initial_data = copy(prop_ijk);$/;"	v
+initial_data	geostats/make_perm_field_realization_pflotran.py	/^initial_data = copy(prop_ijk);$/;"	v
+initial_data	geostats/make_perm_field_realization_pflotran_3d.py	/^initial_data = copy(prop_ijk);$/;"	v
+initial_data	geostats/make_por_field_realization_pflotran.py	/^initial_data = copy(prop_ijk);$/;"	v
+initial_data	geostats/make_por_field_realization_pflotran_3d.py	/^initial_data = copy(prop_ijk);$/;"	v
+inp_file	abqmesh2pflotran.py	/^inp_file = 'int_drift_mesh.inp';$/;"	v
+inputfile	visualiztion_scripts/make_2d_contour.py	/^inputfile= str(raw_input('Please enter the name of output file: '));$/;"	v
+inputfile	visualiztion_scripts/make_scatter_plot.py	/^inputfile= str(raw_input('Please enter the name of output file: '));$/;"	v
+inputfile	visualiztion_scripts/make_tracer_moviefigs_test.py	/^inputfile= str(raw_input('Please enter the name of output file '));$/;"	v
+insert_card	pflotran_input_deck_tools.py	/^def insert_card(ifile,ofile,pattern,cardfile):$/;"	f
+j_max	geostats/krieg_pilot_pt_permfield.py	/^j_max = 1000$/;"	v
+j_max	geostats/make_perm_field_realization_pflotran.py	/^j_max = 500$/;"	v
+j_max	geostats/make_perm_field_realization_pflotran_3d.py	/^j_max = 500$/;"	v
+j_max	geostats/make_por_field_realization_pflotran.py	/^j_max = 100$/;"	v
+j_max	geostats/make_por_field_realization_pflotran_3d.py	/^j_max = 250$/;"	v
+k_max	geostats/krieg_pilot_pt_permfield.py	/^k_max = 1$/;"	v
+k_max	geostats/make_perm_field_realization_pflotran.py	/^k_max = 1$/;"	v
+k_max	geostats/make_perm_field_realization_pflotran_3d.py	/^k_max = 50$/;"	v
+k_max	geostats/make_por_field_realization_pflotran.py	/^k_max = 1$/;"	v
+k_max	geostats/make_por_field_realization_pflotran_3d.py	/^k_max = 25$/;"	v
+lambda_Ar39	visualiztion_scripts/make_age_distribution_slice.py	/^lambda_Ar39=2.58e-3;$/;"	v
+lambda_Ar39	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    lambda_Ar39=2.58e-3;$/;"	v
+lambda_h3	visualiztion_scripts/make_age_distribution_slice.py	/^lambda_h3=0.0558;$/;"	v
+lambda_h3	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    lambda_h3=0.0558;$/;"	v
+lambda_h3	visualiztion_scripts/make_tracer_plot_point.py	/^lambda_h3=0.0558;$/;"	v
+layer	pflotran_input_deck_tools.py	/^class layer:$/;"	c
+ll	abqmesh2pflotran.py	/^ll = ifile.readlines();$/;"	v
+lli	abqmesh2pflotran.py	/^        lli = lli[1::];$/;"	v
+lli	abqmesh2pflotran.py	/^        lli = map(float,line.split(','));$/;"	v
+lli	abqmesh2pflotran.py	/^        lli = map(int,line.split(','));$/;"	v
+lognorm	geostats/krieg_pilot_pt_permfield.py	/^from scipy.stats import lognorm$/;"	i
+lognorm	geostats/make_perm_field_realization_pflotran.py	/^from scipy.stats import lognorm$/;"	i
+lognorm	geostats/make_perm_field_realization_pflotran_3d.py	/^from scipy.stats import lognorm$/;"	i
+make_modern_recharge	pflotran_tools.py	/^def make_modern_recharge(df,model_time_0=datetime(1776,1,1)):$/;"	f
+make_obs_pt__hist_plot	pflotran_tools.py	/^def make_obs_pt__hist_plot(dd,iVar):$/;"	f
+make_tracer_evo_plot	pflotran_tools.py	/^def make_tracer_evo_plot(dd_dict):$/;"	f
+matplotlib	pflotran_tools.py	/^import matplotlib.dates as mdates$/;"	i
+mdates	pflotran_tools.py	/^import matplotlib.dates as mdates$/;"	i
+mean_vx	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^mean_vx = mean(vx_sxz);$/;"	v
+mol_kg2ccSTP_g	pflotran_tools.py	/^def mol_kg2ccSTP_g(x):$/;"	f
+mol_kg2tu	pflotran_tools.py	/^def mol_kg2tu(x):$/;"	f
+mpl	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^import matplotlib as mpl$/;"	i
+mu2	geostats/krieg_pilot_pt_permfield.py	/^mu2=-40.$/;"	v
+mu2	geostats/make_perm_field_realization_pflotran.py	/^mu2=-40.$/;"	v
+mu2	geostats/make_perm_field_realization_pflotran_3d.py	/^mu2=-40.$/;"	v
+mu2	geostats/make_por_field_realization_pflotran.py	/^mu2=.2$/;"	v
+mu2	geostats/make_por_field_realization_pflotran_3d.py	/^mu2=.2$/;"	v
+n	pflotran_input_deck_tools.py	/^import numpy as n$/;"	i
+ng	pflotran_2d_vizualization.py	/^import noble_gas_tools as ng$/;"	i
+nodes_e	abqmesh2pflotran.py	/^		nodes_e = numpy.array(e_dict[e]);$/;"	v
+norm	geostats/make_por_field_realization_pflotran.py	/^from scipy.stats import norm$/;"	i
+norm	geostats/make_por_field_realization_pflotran_3d.py	/^from scipy.stats import norm$/;"	i
+ns_count	abqmesh2pflotran.py	/^ns_count = 0;$/;"	v
+ns_flag	abqmesh2pflotran.py	/^        ns_flag = 1;$/;"	v
+ns_flag	abqmesh2pflotran.py	/^ns_flag = 0;$/;"	v
+nset	abqmesh2pflotran.py	/^	nset = numpy.array(nset);$/;"	v
+nset	abqmesh2pflotran.py	/^                nset = map(int,line.split(',')[0:-1]);$/;"	v
+nset	abqmesh2pflotran.py	/^                nset= nset+map(int,line.split(',')[0:-1]);$/;"	v
+numargs	geostats/krieg_pilot_pt_permfield.py	/^numargs = lognorm.numargs$/;"	v
+numargs	geostats/make_perm_field_realization_pflotran.py	/^numargs = lognorm.numargs$/;"	v
+numargs	geostats/make_perm_field_realization_pflotran_3d.py	/^numargs = lognorm.numargs$/;"	v
+numpy	abqmesh2pflotran.py	/^import numpy$/;"	i
+os	pflotran_tools.py	/^import os$/;"	i
+output_yr	visualiztion_scripts/make_2d_conc_dist_plots_4_paper.py	/^output_yr = 2000;$/;"	v
+output_yr	visualiztion_scripts/make_2d_dist_plots_4_paper.py	/^output_yr = 2000;$/;"	v
+output_yr	visualiztion_scripts/make_age_distribution_slice.py	/^output_yr = 2000;$/;"	v
+output_yr	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^output_yr = 2000;$/;"	v
+p	make_pressure_initial_condition.py	/^p = f[f.keys()[-2]]['Liquid Pressure [Pa]'].value$/;"	v
+pandas	pflotran_tools.py	/^import pandas$/;"	i
+pdb	abqmesh2pflotran.py	/^import pdb$/;"	i
+pdb	geostats/krieg_pilot_pt_permfield.py	/^import pdb$/;"	i
+pdb	geostats/make_perm_field_realization_pflotran.py	/^import pdb$/;"	i
+pdb	geostats/make_perm_field_realization_pflotran_3d.py	/^import pdb$/;"	i
+pdb	geostats/make_por_field_realization_pflotran.py	/^import pdb$/;"	i
+pdb	geostats/make_por_field_realization_pflotran_3d.py	/^import pdb$/;"	i
+pdb	pflotran_2d_vizualization.py	/^import pdb$/;"	i
+pdb	pflotran_input_deck_tools.py	/^import pdb$/;"	i
+pdb	visualiztion_scripts/make_2d_conc_dist_plots_4_paper.py	/^import pdb$/;"	i
+pdb	visualiztion_scripts/make_2d_contour.py	/^import pdb$/;"	i
+pdb	visualiztion_scripts/make_2d_dist_plots_4_paper.py	/^import pdb$/;"	i
+pdb	visualiztion_scripts/make_age_distribution_slice.py	/^import pdb$/;"	i
+pdb	visualiztion_scripts/make_scatter_plot.py	/^import pdb$/;"	i
+pdb	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^import pdb$/;"	i
+pdb	visualiztion_scripts/make_tracer_moviefigs_test.py	/^import pdb$/;"	i
+pdb	visualiztion_scripts/make_tracer_plot_point.py	/^import pdb$/;"	i
+pflotran_strata_region	pflotran_input_deck_tools.py	/^class pflotran_strata_region:$/;"	c
+pist_age	visualiztion_scripts/make_age_distribution_slice.py	/^pist_age = 1.\/lambda_h3*log((He3_sxz-c_he_atm)\/H3_sxz+1.);$/;"	v
+pist_age	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    pist_age = 1.\/lambda_h3*log((He3_sxz-c_he_atm)\/H3_sxz+1.);$/;"	v
+pist_age	visualiztion_scripts/make_tracer_plot_point.py	/^pist_age = 1.\/lambda_h3*log((He3-c_he_atm)\/H3+1.);$/;"	v
+pist_age_Ar39	visualiztion_scripts/make_age_distribution_slice.py	/^pist_age_Ar39 = -lambda_Ar39**-1*log(Ar39_sxz\/c_Ar39_atm);$/;"	v
+pist_age_Ar39	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    pist_age_Ar39 = -lambda_Ar39**-1*log(Ar39_sxz\/c_Ar39_atm);$/;"	v
+pist_age_cfc12	visualiztion_scripts/make_age_distribution_slice.py	/^pist_age_cfc12 = output_yr-pist_year_cfc12;$/;"	v
+pist_age_cfc12	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    pist_age_cfc12 = output_yr-pist_year_cfc12;$/;"	v
+pist_age_cfc12	visualiztion_scripts/make_tracer_plot_point.py	/^pist_age_cfc12 = t_i-pist_year_cfc12;$/;"	v
+pist_age_sf6	visualiztion_scripts/make_age_distribution_slice.py	/^pist_age_sf6 = output_yr-pist_year_sf6;$/;"	v
+pist_age_sf6	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    pist_age_sf6 = output_yr-pist_year_sf6;$/;"	v
+pist_age_sf6	visualiztion_scripts/make_tracer_plot_point.py	/^pist_age_sf6 = t_i-pist_year_sf6;$/;"	v
+pist_year_cfc12	visualiztion_scripts/make_age_distribution_slice.py	/^pist_year_cfc12 = vfunc2(eac);$/;"	v
+pist_year_cfc12	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    pist_year_cfc12 = vfunc2(eac);$/;"	v
+pist_year_cfc12	visualiztion_scripts/make_tracer_plot_point.py	/^pist_year_cfc12 = vfunc2(eac);$/;"	v
+pist_year_sf6	visualiztion_scripts/make_age_distribution_slice.py	/^pist_year_sf6 = vfunc2(eac);$/;"	v
+pist_year_sf6	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    pist_year_sf6 = vfunc2(eac);$/;"	v
+pist_year_sf6	visualiztion_scripts/make_tracer_plot_point.py	/^pist_year_sf6 = vfunc2(eac);$/;"	v
+plot_observation_pt_1d	pflotran_tools.py	/^def plot_observation_pt_1d(dd):$/;"	f
+plot_pflotran_output_line	pflotran_tools.py	/^def plot_pflotran_output_line(dd,dt,direction,variable,pcolor='b',style='-'):$/;"	f
+prop_ijk	geostats/krieg_pilot_pt_permfield.py	/^prop_ijk = require(prop_ijk, dtype=float32, requirements=['F']);$/;"	v
+prop_ijk	geostats/krieg_pilot_pt_permfield.py	/^prop_ijk = zeros((i_max, j_max, k_max));$/;"	v
+prop_ijk	geostats/make_perm_field_realization_pflotran.py	/^prop_ijk = require(prop_ijk, dtype=float32, requirements=['F']);$/;"	v
+prop_ijk	geostats/make_perm_field_realization_pflotran.py	/^prop_ijk = zeros((i_max, j_max, k_max));$/;"	v
+prop_ijk	geostats/make_perm_field_realization_pflotran_3d.py	/^prop_ijk = require(prop_ijk, dtype=float32, requirements=['F']);$/;"	v
+prop_ijk	geostats/make_perm_field_realization_pflotran_3d.py	/^prop_ijk = zeros((i_max, j_max, k_max));$/;"	v
+prop_ijk	geostats/make_por_field_realization_pflotran.py	/^prop_ijk = require(prop_ijk, dtype=float32, requirements=['F']);$/;"	v
+prop_ijk	geostats/make_por_field_realization_pflotran.py	/^prop_ijk = zeros((i_max, j_max, k_max));$/;"	v
+prop_ijk	geostats/make_por_field_realization_pflotran_3d.py	/^prop_ijk = require(prop_ijk, dtype=float32, requirements=['F']);$/;"	v
+prop_ijk	geostats/make_por_field_realization_pflotran_3d.py	/^prop_ijk = zeros((i_max, j_max, k_max));$/;"	v
+prop_init_forcdf	geostats/krieg_pilot_pt_permfield.py	/^prop_init_forcdf = lognorm.rvs(s,loc=mu2,scale=sigma2,size=400);$/;"	v
+prop_init_forcdf	geostats/make_perm_field_realization_pflotran.py	/^prop_init_forcdf = lognorm.rvs(s,loc=mu2,scale=sigma2,size=400);$/;"	v
+prop_init_forcdf	geostats/make_perm_field_realization_pflotran_3d.py	/^prop_init_forcdf = lognorm.rvs(s,loc=mu2,scale=sigma2,size=2000);$/;"	v
+prop_init_forcdf	geostats/make_por_field_realization_pflotran.py	/^prop_init_forcdf = norm.rvs(loc=mu2,scale=sigma2,size=400);$/;"	v
+prop_init_forcdf	geostats/make_por_field_realization_pflotran_3d.py	/^prop_init_forcdf = norm.rvs(loc=mu2,scale=sigma2,size=2000);$/;"	v
+prop_initial	geostats/krieg_pilot_pt_permfield.py	/^prop_initial = (initial_data, array_defined);$/;"	v
+prop_initial	geostats/krieg_pilot_pt_permfield.py	/^prop_initial = ContProperty(prop_initial[0], prop_initial[1]);$/;"	v
+prop_initial	geostats/make_perm_field_realization_pflotran.py	/^prop_initial = (initial_data, array_defined);$/;"	v
+prop_initial	geostats/make_perm_field_realization_pflotran.py	/^prop_initial = ContProperty(prop_initial[0], prop_initial[1]);$/;"	v
+prop_initial	geostats/make_perm_field_realization_pflotran_3d.py	/^prop_initial = (initial_data, array_defined);$/;"	v
+prop_initial	geostats/make_perm_field_realization_pflotran_3d.py	/^prop_initial = ContProperty(prop_initial[0], prop_initial[1]);$/;"	v
+prop_initial	geostats/make_por_field_realization_pflotran.py	/^prop_initial = (initial_data, array_defined);$/;"	v
+prop_initial	geostats/make_por_field_realization_pflotran.py	/^prop_initial = ContProperty(prop_initial[0], prop_initial[1]);$/;"	v
+prop_initial	geostats/make_por_field_realization_pflotran_3d.py	/^prop_initial = (initial_data, array_defined);$/;"	v
+prop_initial	geostats/make_por_field_realization_pflotran_3d.py	/^prop_initial = ContProperty(prop_initial[0], prop_initial[1]);$/;"	v
+read_pflotran_h5	pflotran_tools.py	/^def read_pflotran_h5(h5file='pflotran.h5'):$/;"	f
+read_pflotran_obs_pt_conc	pflotran_tools.py	/^def read_pflotran_obs_pt_conc(ffile='observation-0.tec'):$/;"	f
+read_pflotran_obs_pt_flo	pflotran_tools.py	/^def read_pflotran_obs_pt_flo(ffile='observation-0.tec'):$/;"	f
+read_pflotran_output	pflotran_tools.py	/^def read_pflotran_output(tfile):$/;"	f
+rv	geostats/krieg_pilot_pt_permfield.py	/^rv = lognorm(s,loc=mu2,scale=sigma2);$/;"	v
+rv	geostats/make_perm_field_realization_pflotran.py	/^rv = lognorm(s,loc=mu2,scale=sigma2);$/;"	v
+rv	geostats/make_perm_field_realization_pflotran_3d.py	/^rv = lognorm(s,loc=mu2,scale=sigma2);$/;"	v
+rv	geostats/make_por_field_realization_pflotran.py	/^rv = norm(loc=mu2,scale=sigma2);$/;"	v
+rv	geostats/make_por_field_realization_pflotran_3d.py	/^rv = norm(loc=mu2,scale=sigma2);$/;"	v
+s_bool	visualiztion_scripts/make_2d_contour.py	/^s_bool = raw_input('Save all figures (Y\/N): ');$/;"	v
+s_bool	visualiztion_scripts/make_scatter_plot.py	/^s_bool = raw_input('Save all figures (Y\/N): ');$/;"	v
+s_flag	geostats/make_perm_field_realization_pflotran_3d.py	/^            s_flag=0;$/;"	v
+s_flag	geostats/make_perm_field_realization_pflotran_3d.py	/^s_flag=1$/;"	v
+s_flag	geostats/make_por_field_realization_pflotran_3d.py	/^            s_flag=0;$/;"	v
+s_flag	geostats/make_por_field_realization_pflotran_3d.py	/^s_flag=1$/;"	v
+set_trace	pflotran_tools.py	/^from pdb import set_trace$/;"	i
+sf6	pflotran_2d_vizualization.py	/^import sf6_tools as sf6$/;"	i
+sf6	visualiztion_scripts/make_age_distribution_slice.py	/^import sf6_tools as sf6$/;"	i
+sf6	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^import sf6_tools as sf6$/;"	i
+sf6	visualiztion_scripts/make_tracer_plot_point.py	/^import sf6_tools as sf6$/;"	i
+sgs_initial_data_uncond	geostats/krieg_pilot_pt_permfield.py	/^sgs_initial_data_uncond = sgs_simulation(prop_initial, grid, use_harddata=False, cdf_data=calc_cdf(prop_initial), seed=54783, **sgs_params)$/;"	v
+sgs_initial_data_uncond	geostats/make_perm_field_realization_pflotran.py	/^sgs_initial_data_uncond = sgs_simulation(prop_initial, grid, use_harddata=False, cdf_data=calc_cdf(prop_initial), seed=54783, **sgs_params)$/;"	v
+sgs_initial_data_uncond	geostats/make_perm_field_realization_pflotran_3d.py	/^sgs_initial_data_uncond = sgs_simulation(prop_initial, grid, use_harddata=False, cdf_data=calc_cdf(prop_initial), seed=54783, **sgs_params)$/;"	v
+sgs_initial_data_uncond	geostats/make_por_field_realization_pflotran.py	/^sgs_initial_data_uncond = sgs_simulation(prop_initial, grid, use_harddata=False, cdf_data=calc_cdf(prop_initial), seed=54784, **sgs_params)$/;"	v
+sgs_initial_data_uncond	geostats/make_por_field_realization_pflotran_3d.py	/^sgs_initial_data_uncond = sgs_simulation(prop_initial, grid, use_harddata=False, cdf_data=calc_cdf(prop_initial), seed=54784, **sgs_params)$/;"	v
+sgs_params	geostats/krieg_pilot_pt_permfield.py	/^sgs_params = {"cov_model": variogram2, "radiuses": (240\/5, 80\/5, 1), "max_neighbours": 20 }$/;"	v
+sgs_params	geostats/make_perm_field_realization_pflotran.py	/^sgs_params = {"cov_model": variogram2, "radiuses": (40, 40, 1), "max_neighbours": 20 }$/;"	v
+sgs_params	geostats/make_perm_field_realization_pflotran_3d.py	/^sgs_params = {"cov_model": variogram2, "radiuses": (yrad, xrad, zrad), "max_neighbours": 20 }$/;"	v
+sgs_params	geostats/make_por_field_realization_pflotran.py	/^sgs_params = {"cov_model": variogram2, "radiuses": (240, 80, 1), "max_neighbours": 20 }$/;"	v
+sgs_params	geostats/make_por_field_realization_pflotran_3d.py	/^sgs_params = {"cov_model": variogram2, "radiuses": (yrad, xrad, zrad), "max_neighbours": 20 }$/;"	v
+sgs_realization_pflotran	geostats/krieg_pilot_pt_permfield.py	/^            sgs_realization_pflotran = concatenate((sgs_realization_pflotran,sgs_initial_data_uncond[0][i,:,k]));$/;"	v
+sgs_realization_pflotran	geostats/krieg_pilot_pt_permfield.py	/^            sgs_realization_pflotran = sgs_initial_data_uncond[0][i,:,k];$/;"	v
+sgs_realization_pflotran	geostats/make_perm_field_realization_pflotran.py	/^            sgs_realization_pflotran = concatenate((sgs_realization_pflotran,sgs_initial_data_uncond[0][i,:,k]));$/;"	v
+sgs_realization_pflotran	geostats/make_perm_field_realization_pflotran.py	/^            sgs_realization_pflotran = sgs_initial_data_uncond[0][i,:,k];$/;"	v
+sgs_realization_pflotran	geostats/make_perm_field_realization_pflotran_3d.py	/^            sgs_realization_pflotran = concatenate((sgs_realization_pflotran,sgs_initial_data_uncond[0][j,:,k]));$/;"	v
+sgs_realization_pflotran	geostats/make_perm_field_realization_pflotran_3d.py	/^            sgs_realization_pflotran = sgs_initial_data_uncond[0][j,:,k];$/;"	v
+sgs_realization_pflotran	geostats/make_por_field_realization_pflotran.py	/^            sgs_realization_pflotran = concatenate((sgs_realization_pflotran,sgs_initial_data_uncond[0][i,:,k]));$/;"	v
+sgs_realization_pflotran	geostats/make_por_field_realization_pflotran.py	/^            sgs_realization_pflotran = sgs_initial_data_uncond[0][i,:,k];$/;"	v
+sgs_realization_pflotran	geostats/make_por_field_realization_pflotran_3d.py	/^            sgs_realization_pflotran = concatenate((sgs_realization_pflotran,sgs_initial_data_uncond[0][j,:,k]));$/;"	v
+sgs_realization_pflotran	geostats/make_por_field_realization_pflotran_3d.py	/^            sgs_realization_pflotran = sgs_initial_data_uncond[0][j,:,k];$/;"	v
+sigma2	geostats/krieg_pilot_pt_permfield.py	/^sigma2 = 10.1;$/;"	v
+sigma2	geostats/make_perm_field_realization_pflotran.py	/^sigma2 = 10.1;$/;"	v
+sigma2	geostats/make_perm_field_realization_pflotran_3d.py	/^sigma2 = 10.1;$/;"	v
+sigma2	geostats/make_por_field_realization_pflotran.py	/^sigma2 = .03;$/;"	v
+sigma2	geostats/make_por_field_realization_pflotran_3d.py	/^sigma2 = .03;$/;"	v
+ss_count	abqmesh2pflotran.py	/^ss_count = 0;$/;"	v
+string	pflotran_input_deck_tools.py	/^import string$/;"	i
+string	pflotran_tools.py	/^import string$/;"	i
+sts	geostats/krieg_pilot_pt_permfield.py	/^sts = rv.stats()$/;"	v
+sts	geostats/make_perm_field_realization_pflotran.py	/^sts = rv.stats()$/;"	v
+sts	geostats/make_perm_field_realization_pflotran_3d.py	/^sts = rv.stats()$/;"	v
+sts	geostats/make_por_field_realization_pflotran.py	/^sts = rv.stats()$/;"	v
+sts	geostats/make_por_field_realization_pflotran_3d.py	/^sts = rv.stats()$/;"	v
+sxz	visualiztion_scripts/make_age_distribution_slice.py	/^sxz = sxz\/3.156e7$/;"	v
+sxz	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    sxz = sxz\/3.156e7$/;"	v
+t	geostats/krieg_pilot_pt_permfield.py	/^t = logspace(log10(a.min()),log10(a.max()),num=10);$/;"	v
+t	geostats/make_perm_field_realization_pflotran.py	/^t = logspace(floor(log10(a.min())),ceil(log10(a.max())),num=5);$/;"	v
+t	geostats/make_perm_field_realization_pflotran_3d.py	/^t = logspace(log10(a.min()),log10(a.max()),num=10);$/;"	v
+t_i	visualiztion_scripts/make_tracer_plot_point.py	/^t_i = t_i+1930; #years$/;"	v
+t_obs	visualiztion_scripts/make_tracer_plot_point.py	/^t_obs = 2012$/;"	v
+trapz	pflotran_tools.py	/^from scipy.integrate import trapz$/;"	i
+v_dict	abqmesh2pflotran.py	/^v_dict={};$/;"	v
+variogram2	geostats/krieg_pilot_pt_permfield.py	/^variogram2 = CovarianceModel(type=covariance.spherical, ranges = (120\/5, 40\/5, 1), sill = 1, angles = (0, 0, 0))$/;"	v
+variogram2	geostats/make_perm_field_realization_pflotran.py	/^variogram2 = CovarianceModel(type=covariance.spherical, ranges = (20, 20, 1), sill = 1, angles = (0, 0, 0))$/;"	v
+variogram2	geostats/make_perm_field_realization_pflotran_3d.py	/^variogram2 = CovarianceModel(type=covariance.spherical, ranges = (ycorr, xcorr, zcorr), sill = 1, angles = (0, 0, 0))$/;"	v
+variogram2	geostats/make_por_field_realization_pflotran.py	/^variogram2 = CovarianceModel(type=covariance.spherical, ranges = (120, 40, 1), sill = 1, angles = (0, 0, 0))$/;"	v
+variogram2	geostats/make_por_field_realization_pflotran_3d.py	/^variogram2 = CovarianceModel(type=covariance.spherical, ranges = (ycorr, xcorr, zcorr), sill = 1, angles = (0, 0, 0))$/;"	v
+vertex_array	abqmesh2pflotran.py	/^            vertex_array = numpy.vstack((vertex_array,lli));$/;"	v
+vertex_array	abqmesh2pflotran.py	/^            vertex_array=numpy.array(lli,'f8');$/;"	v
+vfunc	visualiztion_scripts/make_age_distribution_slice.py	/^vfunc = vectorize(cfc.equil_air_conc);$/;"	v
+vfunc	visualiztion_scripts/make_age_distribution_slice.py	/^vfunc = vectorize(sf6.equil_air_conc);$/;"	v
+vfunc	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    vfunc = vectorize(cfc.equil_air_conc);$/;"	v
+vfunc	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    vfunc = vectorize(sf6.equil_air_conc);$/;"	v
+vfunc	visualiztion_scripts/make_tracer_plot_point.py	/^vfunc = vectorize(cfc.equil_air_conc);$/;"	v
+vfunc	visualiztion_scripts/make_tracer_plot_point.py	/^vfunc = vectorize(sf6.equil_air_conc);$/;"	v
+vfunc2	visualiztion_scripts/make_age_distribution_slice.py	/^vfunc2 = vectorize(cfc.age_date);$/;"	v
+vfunc2	visualiztion_scripts/make_age_distribution_slice.py	/^vfunc2 = vectorize(sf6.age_date);$/;"	v
+vfunc2	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    vfunc2 = vectorize(cfc.age_date);$/;"	v
+vfunc2	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^    vfunc2 = vectorize(sf6.age_date);$/;"	v
+vfunc2	visualiztion_scripts/make_tracer_plot_point.py	/^vfunc2 = vectorize(cfc.age_date);$/;"	v
+vfunc2	visualiztion_scripts/make_tracer_plot_point.py	/^vfunc2 = vectorize(sf6.age_date);$/;"	v
+write_grid_card_bounds	pflotran_input_deck_tools.py	/^def write_grid_card_bounds(nxyz,b_min,b_max,grav=(0.,0.,0.),origin=(0.,0.,0.),invert_z=False):$/;"	f
+write_ic_condition_coupler_card	pflotran_input_deck_tools.py	/^def write_ic_condition_coupler_card(reg,clist,cname):$/;"	f
+write_region_card	pflotran_input_deck_tools.py	/^def write_region_card(reg,rlist):$/;"	f
+write_source_sink_coupler_card	pflotran_input_deck_tools.py	/^def write_source_sink_coupler_card(reg,sslist,ssname):$/;"	f
+write_strata_card	pflotran_input_deck_tools.py	/^def write_strata_card(reg,slist):$/;"	f
+x	visualiztion_scripts/make_tracer_plot_point.py	/^x = 50.;$/;"	v
+x_dist	visualiztion_scripts/make_age_distribution_slice.py	/^x_dist = 300;$/;"	v
+x_dist_vec	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^x_dist_vec = [3.,5.,7.,10.,15.,20.,50.,75.,100.,200.,300.,400.,500.];$/;"	v
+xcorr	geostats/make_perm_field_realization_pflotran_3d.py	/^xcorr=int(xcorrlen*(j_max\/xdim));$/;"	v
+xcorr	geostats/make_por_field_realization_pflotran_3d.py	/^xcorr=int(xcorrlen*(j_max\/xdim));$/;"	v
+xcorrlen	geostats/make_perm_field_realization_pflotran_3d.py	/^xcorrlen=20;$/;"	v
+xcorrlen	geostats/make_por_field_realization_pflotran_3d.py	/^xcorrlen=40;$/;"	v
+xdim	geostats/make_perm_field_realization_pflotran_3d.py	/^xdim = 500.;$/;"	v
+xdim	geostats/make_por_field_realization_pflotran_3d.py	/^xdim = 500.;$/;"	v
+xmin	visualiztion_scripts/make_age_distribution_slice.py	/^xmin=0$/;"	v
+xrad	geostats/make_perm_field_realization_pflotran_3d.py	/^xrad = xcorr*2;$/;"	v
+xrad	geostats/make_por_field_realization_pflotran_3d.py	/^xrad = xcorr*2;$/;"	v
+y	visualiztion_scripts/make_tracer_plot_point.py	/^y = 10.;$/;"	v
+ycorr	geostats/make_perm_field_realization_pflotran_3d.py	/^ycorr=int(ycorrlen*(i_max\/ydim));$/;"	v
+ycorr	geostats/make_por_field_realization_pflotran_3d.py	/^ycorr=int(ycorrlen*(i_max\/ydim));$/;"	v
+ycorrlen	geostats/make_perm_field_realization_pflotran_3d.py	/^ycorrlen=20;$/;"	v
+ycorrlen	geostats/make_por_field_realization_pflotran_3d.py	/^ycorrlen=120;$/;"	v
+ydim	geostats/make_perm_field_realization_pflotran_3d.py	/^ydim = 500.;$/;"	v
+ydim	geostats/make_por_field_realization_pflotran_3d.py	/^ydim = 500.;$/;"	v
+yr_start	visualiztion_scripts/make_2d_conc_dist_plots_4_paper.py	/^yr_start = 1930;$/;"	v
+yr_start	visualiztion_scripts/make_2d_dist_plots_4_paper.py	/^yr_start = 1930;$/;"	v
+yr_start	visualiztion_scripts/make_age_distribution_slice.py	/^yr_start = 1930;$/;"	v
+yr_start	visualiztion_scripts/make_tracer_age_ratio_plot.py	/^yr_start = 1930;$/;"	v
+yrad	geostats/make_perm_field_realization_pflotran_3d.py	/^yrad = ycorr*2;$/;"	v
+yrad	geostats/make_por_field_realization_pflotran_3d.py	/^yrad = ycorr*2;$/;"	v
+z	visualiztion_scripts/make_tracer_plot_point.py	/^z = 0.5;$/;"	v
+zcorr	geostats/make_perm_field_realization_pflotran_3d.py	/^zcorr=int(zcorrlen*(k_max\/zdim));$/;"	v
+zcorr	geostats/make_por_field_realization_pflotran_3d.py	/^zcorr=int(zcorrlen*(k_max\/zdim));$/;"	v
+zcorrlen	geostats/make_perm_field_realization_pflotran_3d.py	/^zcorrlen=20;$/;"	v
+zcorrlen	geostats/make_por_field_realization_pflotran_3d.py	/^zcorrlen=10;$/;"	v
+zdim	geostats/make_perm_field_realization_pflotran_3d.py	/^zdim = 50.;$/;"	v
+zdim	geostats/make_por_field_realization_pflotran_3d.py	/^zdim = 50.;$/;"	v
+zrad	geostats/make_perm_field_realization_pflotran_3d.py	/^zrad = zcorr*2;$/;"	v
+zrad	geostats/make_por_field_realization_pflotran_3d.py	/^zrad = zcorr*2;$/;"	v
