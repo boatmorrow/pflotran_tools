@@ -295,19 +295,20 @@ def make_obs_pt_hist_plot(dd,iVar):
 
 def make_modern_recharge(df,model_time_0=dt.datetime(1776,1,1)):
     '''produces two files, the list of constrains and the conditions for modern recharge for each date (limited to daly right now), df needs to be a time indexed data frame in mol/kg e.g. produced by get_atm_conc, and the date where the model begins'''
+    df = df[df.index>=model_time_0]
     f = open('Modern_Constraints.txt','w')
     s = []
     for i in range(len(df)):
-        s.append('CONSTRAINT ' + df.index[i].isodate() +'\n')
+        s.append('CONSTRAINT ' + df.index[i].strftime('%m-%d-%Y') +'\n')
         s.append('  CONCENTRATIONS\n')
         for j in range(len(df.columns)):
-            s.append('    '+df.columns[j]+'\t'+'%1.4E' %df.ix[i][j]+'\tF\n')
-        #    s.append('    A(aq)'+'\t'+'%1.4E' %1.e-8+'\tF\n');  #for plotran water_age simulation
-        s.append('    Tracer'+'\t'+'%1.4E' %1.e-16+'\tF\n');  #for plotran water_age simulation
-        #    s.append('    Tracer_Age'+'\t'+'%1.4E' %1.e-16+'\tF\n');  #for plotran water_age simulation
-    s.append('  /\n');
-    s.append('END\n');
-    s.append('\n')
+            if df.iloc[i][j] > 0:
+                s.append('    '+df.columns[j]+'\t'+'%1.4E' %df.iloc[i][j]+'\tF\n')
+            else:
+                s.append('    '+df.columns[j]+'\t'+'%1.4E' %1.e-20+'\tF\n')
+        s.append('  /\n');
+        s.append('END\n');
+        s.append('\n')
     f.writelines(s);
     f.close();
 
@@ -316,10 +317,10 @@ def make_modern_recharge(df,model_time_0=dt.datetime(1776,1,1)):
     s.append('TRANSPORT_CONDITION modern_recharge\n');
     s.append('  TYPE dirichlet_zero_gradient\n');
     s.append('  CONSTRAINT_LIST\n')
-    for i in range(df):
-        seconds = (df.index[i] - model_time_0).total_seconds #needs to be in seconds for pflotran
+    for i in range(len(df)):
+        seconds = (df.index[i] - model_time_0).total_seconds() #needs to be in seconds for pflotran
         sec_str = '%1.5E' %seconds
-        const_nm = df.index[i].isotdate()
+        const_nm = df.index[i].strftime('%m-%d-%Y')
         s.append('    '+sec_str+'\t'+const_nm+'\n')
     s.append('  /\n');
     s.append('END');
