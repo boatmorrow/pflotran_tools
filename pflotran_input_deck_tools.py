@@ -149,7 +149,7 @@ def write_grid_card_bounds(nxyz,b_min,b_max,grav=(0.,0.,0.),origin=(0.,0.,0.),in
       '''
     
     gc = []
-    f = file('grid.txt','w')
+    f = open('grid.txt','w')
     gc.append('GRID \n')
     gc.append('  TYPE structured \n')
     gc.append('  GRAVITY '+str(grav[0])+'  '+str(grav[1])+'  '+str(grav[2])+'\n')
@@ -261,7 +261,7 @@ def write_grid_card_dx(dx,dy,dz,grav=(0.,0.,0.),origin=(0.,0.,0,),invert_z=False
     dx_len=str(len(dx));
     dz_len=str(len(dz));
     dy_len=str(len(dy));
-    gfile = file('grid.txt','w');
+    gfile = open('grid.txt','w');
     i=0
     ddx = []
     ddy = []
@@ -636,22 +636,22 @@ def change_rel_perm_params_mualem(ifile,ofile,sat_func,m,res_sat):
 #should do it for a list of patterns and cardfiles...
 def insert_card(ifile,ofile,pattern,cardfile):
     '''inserts the card in cardfile at location pattern in ifile.  returns ofile'''
-    f = file(ifile,'r')
+    f = open(ifile,'r')
     ll = f.readlines()
     f.close()
 
-    f = file(cardfile,'r')
+    f = open(cardfile,'r')
     il = f.readlines()
     f.close()
     
     #now march through and find the right places to insert
     for i in range(len(ll)):
-        line = string.strip(ll[i])
+        line = ll[i].strip()
         if line == pattern:
             for x in reversed(il):
                 ll.insert(i+1,x)  
     
-    f = file(ofile,'w')
+    f = open(ofile,'w')
     f.writelines(ll)
     f.close()
 
