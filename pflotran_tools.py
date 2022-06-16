@@ -145,7 +145,7 @@ def ReadPflotranObsPtPandas(obsptfile='observation-59.tec',map_time2date=False,d
     ################################################################################
     # read in the output observation point
     ################################################################################
-    f = file(obsptfile,'r');
+    f = open(obsptfile,'r');
     header = f.readline()
     #first we need to deal with that nast ass header
     lh = header.split(',')
@@ -183,7 +183,7 @@ def ReadPflotranObsPt(obsptfile='observation-59.tec'):
     ################################################################################
     # read in the output observation point
     ################################################################################    
-    f = file(obsptfile,'r');
+    f = open(obsptfile,'r');
     ll = f.readlines();
     f.close();
     #first we need to deal with that nast ass header
@@ -209,7 +209,7 @@ def ReadPflotranObsPt(obsptfile='observation-59.tec'):
         line = line+'\n'
         ll2.append(line);
     manglefile = 'observation_pg.tec'
-    f = file(manglefile,'w');
+    f = open(manglefile,'w');
     f.writelines(ll2);
     f.close();
     #make the names and formats to define the rec array

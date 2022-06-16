@@ -20,8 +20,8 @@ def PrintOutputKeys(inputfile):
     times,timekeys = GetTimeInfo(inputfile)
     tk = timekeys[0]
     f1 = h5py.File(inputfile,'r')
-    kk = sort(f1[tk].keys()) 
-    print kk
+    kk = sort(list(f1[tk].keys())) 
+    print(kk)
     f1.close()
     return
     
@@ -57,7 +57,7 @@ def GetTimeInfo(inputfile):
     times = [];
     timekeys = [];
     #tracer = 'H3'
-    for k in f1.keys():
+    for k in list(f1.keys()):
         kk = k.split()[0];
         if kk =='Time:':
             times.append(float(k.split()[1]));
@@ -74,7 +74,7 @@ def GetTimeInfo(inputfile):
 def GetMaxTime(inputfile):
     '''return the maximum time output from the input file'''
     d = hdf5.File(inputfile,'r')
-    kl = max([float(k.split()[1]) for k in d.keys() if k.split()[0]==u'Time:'])
+    kl = max([float(k.split()[1]) for k in list(d.keys()) if k.split()[0]=='Time:'])
     return kl
 
 def PlotHeadDistribution2dXY(time,z,inputfile):
